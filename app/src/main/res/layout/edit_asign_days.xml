@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/nameAsign"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nombre de asignatura"
+                android:layout_margin="10dp"
+                android:padding="15dp"
+                android:drawableStart="@drawable/diamante"
+                android:drawablePadding="15dp"
+                android:maxLength="50"
+                android:background="@android:drawable/edit_text"
+                android:drawableLeft="@drawable/diamante" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <EditText
+                    android:id="@+id/hora"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="7:00"
+                    android:inputType="time"
+                    android:layout_margin="10dp"
+                    android:padding="15dp"
+                    android:drawableStart="@drawable/diamante"
+                    android:drawablePadding="15dp"
+                    android:maxLength="50"
+                    android:background="@android:drawable/edit_text"
+                    android:drawableLeft="@drawable/diamante" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="a"
+                    android:textStyle="bold"/>
+                <EditText
+                    android:id="@+id/tohoradays"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="7:00"
+                    android:inputType="time"
+                    android:layout_margin="10dp"
+                    android:padding="15dp"
+                    android:drawableStart="@drawable/diamante"
+                    android:drawablePadding="15dp"
+                    android:maxLength="50"
+                    android:background="@android:drawable/edit_text"
+                    android:drawableLeft="@drawable/diamante" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/profesor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Profesor"
+                android:layout_margin="10dp"
+                android:padding="15dp"
+                android:drawableStart="@drawable/diamante"
+                android:drawablePadding="15dp"
+                android:maxLength="150"
+                android:background="@android:drawable/edit_text"
+                android:drawableLeft="@drawable/diamante" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="1">
+
+                <EditText
+                    android:id="@+id/aula"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Aula"
+                    android:layout_margin="10dp"
+                    android:padding="15dp"
+                    android:drawableStart="@drawable/diamante"
+                    android:drawablePadding="15dp"
+                    android:maxLength="150"
+                    android:background="@android:drawable/edit_text"
+                    android:layout_weight="0.61"
+                    android:maxWidth="120dp"
+                    android:drawableLeft="@drawable/diamante" />
+
+                <Button
+                    android:id="@+id/btnGuardarAsign"
+                    android:onClick="btnGuardar"
+                    android:drawableStart="@drawable/ic_select"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Guardar"
+                    android:textColor="#fff"
+                    android:textStyle="bold"
+                    android:padding="5dp"
+                    android:background="@drawable/boton_redondo"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.23"
+                    android:drawableLeft="@drawable/ic_select" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

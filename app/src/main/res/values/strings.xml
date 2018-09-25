@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Agenda Escolar</string>
+    <string name="title_home">Horario</string>
+    <string name="title_dashboard">tareas</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="version_alpha">Alpha2</string>
+    <string name="version_beta">Beta1</string>
+    <string name="version_estable">Version 0.3</string>
+    <string name="build">Build 137</string>
+
+
+    <string name="info_text">Indentifiquese</string>
+    <string name="crear_boton">CREAR CUENTA</string>
+    <string name="nombre_input">Nombre</string>
+    <string name="contrasena_input">Constraseña</string>
+    <string name="recordar_check">Recordarme</string>
+    <string name="olvidar_text">¿Olvidaste tu Contraseña?</string>
+    <string name="entrar_boton">ENTRAR</string>
+    <string name="cliente_label">Cliente</string>
+    <string name="producto_label">Producto</string>
+    <string name="fecha_label">Fecha</string>
+    <string name="prioridad_label">Prioridad</string>
+    <string name="notas_label">Notas</string>
+    <string name="notas_hint">Notas</string>
+
+</resources>

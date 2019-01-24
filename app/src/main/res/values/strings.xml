@@ -6,8 +6,8 @@
 
     <string name="version_alpha">Alpha2</string>
     <string name="version_beta">Beta1</string>
-    <string name="version_estable">Version 0.3</string>
-    <string name="build">Build 137</string>
+    <string name="version_estable">Version 1.1</string>
+    <string name="build">Build 175</string>
 
 
     <string name="info_text">Indentifiquese</string>
@@ -23,5 +23,8 @@
     <string name="prioridad_label">Prioridad</string>
     <string name="notas_label">Notas</string>
     <string name="notas_hint">Notas</string>
+    <string name="cancel">Cancelar</string>
+    <string name="edit">Editar</string>
+    <string name="save">Guardar</string>
 
 </resources>

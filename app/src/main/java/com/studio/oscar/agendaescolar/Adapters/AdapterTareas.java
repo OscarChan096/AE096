@@ -69,13 +69,13 @@ public class AdapterTareas extends BaseAdapter {
 
         homework dir = items.get(position);
 
-        TextView asign = (TextView) v.findViewById(R.id.asignatura_tareas);
+        TextView asign = v.findViewById(R.id.asignatura_tareas);
         asign.setText(dir.getAsignatura());
 
-        TextView fecha = (TextView) v.findViewById(R.id.fecha_entrega_tareas);
+        TextView fecha = v.findViewById(R.id.fecha_entrega_tareas);
         fecha.setText(dir.getFechaEntrega());
 
-        TextView tarea = (TextView) v.findViewById(R.id.tarea);
+        TextView tarea = v.findViewById(R.id.tarea);
         tarea.setText(dir.getTarea());
 
         return v;

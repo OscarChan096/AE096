@@ -37,12 +37,12 @@ public class EditInfoUser extends AppCompatActivity {
         String nControlx = i.getStringExtra("control");
         posicion = i.getStringExtra("posicion");
 
-        final EditText nombre = (EditText)findViewById(R.id.nombre_info_user);
-        final EditText escuela = (EditText)findViewById(R.id.escuela_info_user);
-        final EditText especialidad = (EditText)findViewById(R.id.especialidad_info_user);
-        final EditText numTel = (EditText)findViewById(R.id.numtel_info_user);
-        final EditText nControl = (EditText)findViewById(R.id.ncontrol_info_user);
-        Button btn = (Button)findViewById(R.id.btn_info_user);
+        final EditText nombre = findViewById(R.id.nombre_info_user);
+        final EditText escuela = findViewById(R.id.escuela_info_user);
+        final EditText especialidad = findViewById(R.id.especialidad_info_user);
+        final EditText numTel = findViewById(R.id.numtel_info_user);
+        final EditText nControl = findViewById(R.id.ncontrol_info_user);
+        Button btn = findViewById(R.id.btn_info_user);
 
         nombre.setText(nombrex);
         escuela.setText(escuelax);
@@ -60,8 +60,8 @@ public class EditInfoUser extends AppCompatActivity {
                 String nControlx = nControl.getText().toString();
 
                 try{
-                    File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/inf");
-                    File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/inf").listFiles();
+                    File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/inf");
+                    File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/inf").listFiles();
                     short pos = Short.parseShort(posicion);
                     String name = arrayFile[pos].getName(); //nfile
 

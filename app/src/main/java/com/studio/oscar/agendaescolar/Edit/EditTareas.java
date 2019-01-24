@@ -35,10 +35,10 @@ public class EditTareas extends AppCompatActivity implements View.OnClickListene
         super.onCreate(saved);
         setContentView(R.layout.editar_tareas);
 
-        asignaturaOpcion = (Spinner) findViewById(R.id.spinner);
-        inTarea = (EditText) findViewById(R.id.inTarea);
-        fechaEntrega = (EditText) findViewById(R.id.fechaEntrega);
-        Button btnSave = (Button) findViewById(R.id.btnguardar);
+        asignaturaOpcion = findViewById(R.id.spinner);
+        inTarea = findViewById(R.id.inTarea);
+        fechaEntrega = findViewById(R.id.fechaEntrega);
+        Button btnSave = findViewById(R.id.btnguardar);
 
         Intent i = getIntent();
         asignatura = i.getStringExtra("asign");
@@ -69,8 +69,8 @@ public class EditTareas extends AppCompatActivity implements View.OnClickListene
                 case R.id.btnguardar:
 
                     try {
-                        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/8");
-                        File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/8").listFiles();
+                        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/8");
+                        File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/8").listFiles();
                         short pos = Short.parseShort(posicion);
                         String name = arrayFile[pos].getName(); //nfile
                         File fileName = new File(path.getAbsolutePath(), name);
@@ -104,8 +104,8 @@ public class EditTareas extends AppCompatActivity implements View.OnClickListene
 
         String name;
         int pos = 0;
-        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/7"); // obtiene el acceso a la memoria interna y obtiene el directorio
-        File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/7").listFiles(); // obtiene la lista de archivos que existen en el directorio
+        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/7"); // obtiene el acceso a la memoria interna y obtiene el directorio
+        File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/7").listFiles(); // obtiene la lista de archivos que existen en el directorio
         String[] arrayStr = new String[arrayFile.length];
 
         for (nFile = 0; nFile <= arrayStr.length; nFile++) {
@@ -133,7 +133,7 @@ public class EditTareas extends AppCompatActivity implements View.OnClickListene
                 e.printStackTrace();
             }
         } // end for
-        asignaturaOpcion.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, arrayStr));
+        asignaturaOpcion.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, arrayStr));
         asignaturaOpcion.setSelection(pos);
 
     } // end leerAsignaturas

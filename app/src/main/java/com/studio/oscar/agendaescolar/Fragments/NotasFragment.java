@@ -33,6 +33,7 @@ public class NotasFragment extends Fragment {
     long posicionList;
     ArrayList<Nota> arrayList;
     AdapterNotas adapter;
+    final private String nameClass = "NotasFragment";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup group, Bundle saved){
@@ -43,7 +44,7 @@ public class NotasFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle saved){
         super.onActivityCreated(saved);
-        lista = (ListView)getActivity().findViewById(R.id.listNotas);
+        lista = getActivity().findViewById(R.id.listNotas);
         arrayList = Read.ReadNotas();
         adapter = new AdapterNotas(getActivity(), arrayList);
         lista.setAdapter(adapter);
@@ -96,9 +97,6 @@ public class NotasFragment extends Fragment {
         if(v.getId() == R.id.listNotas){
             AdapterView.AdapterContextMenuInfo info =
                     (AdapterView.AdapterContextMenuInfo)menuInfo;
-
-            //menu.setHeaderTitle(
-            //      lista.getAdapter().getItem(info.position).toString()); // se debe de ver solo el nombre de la materia
             varAux = lista.getAdapter().getItem(info.position).toString();
             posicionList = lista.getItemIdAtPosition(info.position);
 
@@ -121,10 +119,10 @@ public class NotasFragment extends Fragment {
                 startActivity(editar);
                 return true;
             case R.id.delete:
-                File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/9").listFiles();
+                File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/9").listFiles();
                 for (short i = 0; i <= arrayFile.length; i++){
                     if(posicionList == i){
-                        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/9");
+                        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/9");
                         String getname = arrayFile[i].getName();
                         File fn = new File(path.getAbsolutePath(), getname);
                         fn.delete();
@@ -139,5 +137,6 @@ public class NotasFragment extends Fragment {
                 return super.onContextItemSelected(item);
         }
     }
+
 
 }

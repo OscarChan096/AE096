@@ -27,10 +27,10 @@ public class AddEventos extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_eventos);
 
-        nombreEvento = (EditText)findViewById(R.id.nombre_evento);
-        descripcion = (EditText)findViewById(R.id.descripcion_evento);
-        fecha = (EditText)findViewById(R.id.fecha_evento);
-        hora = (EditText)findViewById(R.id.hora_evento);
+        nombreEvento = findViewById(R.id.nombre_evento);
+        descripcion = findViewById(R.id.descripcion_evento);
+        fecha = findViewById(R.id.fecha_evento);
+        hora = findViewById(R.id.hora_evento);
 
         View btnGuardar = findViewById(R.id.guardar_evt);
         btnGuardar.setOnClickListener(this);
@@ -62,10 +62,10 @@ public class AddEventos extends AppCompatActivity implements View.OnClickListene
                     String name = evtx+ext;
 
                     try{
-                        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/10");
+                        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/10");
                         File fileName = new File(path.getAbsolutePath(), name);
                         if(path.isDirectory() && fileName.exists()){
-                            File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/10").listFiles();
+                            File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/10").listFiles();
 
                             int next = arrayFile.length;
 

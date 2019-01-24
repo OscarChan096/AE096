@@ -15,4 +15,8 @@
     <dimen name="paddingIc">25dp</dimen>
     <dimen name="paddingTiles">15dp</dimen>
 
+    <dimen name="activity_margin">16dp</dimen>
+    <dimen name="vertical_separator">10dp</dimen>
+    <dimen name="dialog_margin">24dp</dimen>
+
 </resources>

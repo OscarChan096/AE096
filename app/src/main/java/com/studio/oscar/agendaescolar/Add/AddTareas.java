@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.studio.oscar.agendaescolar.Adapters.AdapterTareas;
 import com.studio.oscar.agendaescolar.Objetos.HClases;
 import com.studio.oscar.agendaescolar.Objetos.homework;
 import com.studio.oscar.agendaescolar.R;
@@ -35,9 +34,9 @@ public class AddTareas extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_tareas);
 
-        asignaturaOpcion = (Spinner)findViewById(R.id.spinner);
-        inTarea = (EditText)findViewById(R.id.inTarea);
-        fechaEntrega = (EditText)findViewById(R.id.fechaEntrega);
+        asignaturaOpcion = findViewById(R.id.spinner);
+        inTarea = findViewById(R.id.inTarea);
+        fechaEntrega = findViewById(R.id.fechaEntrega);
 
         leerAsignaturas();
 
@@ -59,10 +58,10 @@ public class AddTareas extends AppCompatActivity {
         short nFile;
         String name;
 
-        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/7"); // obtiene el acceso a la memoria interna y obtiene el directorio
+        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/7"); // obtiene el acceso a la memoria interna y obtiene el directorio
         File fileName = new File(path.getAbsolutePath(), "horario.obj");
         if(path.isDirectory() && fileName.exists()){
-            File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/7").listFiles(); // obtiene la lista de archivos que existen en el directorio
+            File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/7").listFiles(); // obtiene la lista de archivos que existen en el directorio
             String[] arrayStr  = new String[arrayFile.length];
             if(arrayFile != null){
                 for(nFile = 0; nFile <= arrayStr.length; nFile++){
@@ -80,9 +79,8 @@ public class AddTareas extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"Archivo no encontrado: "+ex.getMessage(),Toast.LENGTH_SHORT).show();
                     }catch(IOException e){
                         Toast.makeText(getApplicationContext(), "Error IOE", Toast.LENGTH_SHORT).show();
-                    }catch (ArrayIndexOutOfBoundsException e){
-                        //Toast.makeText(getApplicationContext(), "Error Array: "+e.getMessage(), Toast.LENGTH_SHORT).show();
-                    } catch (ClassNotFoundException e) {
+                    }catch (ArrayIndexOutOfBoundsException e){}
+                     catch (ClassNotFoundException e) {
                         e.printStackTrace();
                     }
                 } // end for
@@ -104,10 +102,10 @@ public class AddTareas extends AppCompatActivity {
         String name = work+ext;
         if(!asignatura.equals("No se han agregado asignaturas")) {
             try {
-                File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/8");
+                File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/8");
                 File fileName = new File(path.getAbsolutePath(), name);
                 if (path.isDirectory() && fileName.exists()) {
-                    File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/8").listFiles();
+                    File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/8").listFiles();
 
                     int next = arrayFile.length;
 

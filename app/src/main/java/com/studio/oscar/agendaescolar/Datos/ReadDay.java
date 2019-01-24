@@ -1,7 +1,6 @@
 package com.studio.oscar.agendaescolar.Datos;
 
 import android.util.Log;
-import android.widget.Toast;
 
 import com.studio.oscar.agendaescolar.Objetos.HClases;
 
@@ -50,10 +49,10 @@ public class ReadDay {
         HClases hClases;
         short nFile;
 
-        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/"+"7"); // obtiene el acceso a la memoria interna y obtiene el directorio
+        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/"+"7"); // obtiene el acceso a la memoria interna y obtiene el directorio
 
         if(path.isDirectory()){
-            File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/"+"7").listFiles(); // obtiene la lista de archivos que existen en el directorio
+            File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/"+"7").listFiles(); // obtiene la lista de archivos que existen en el directorio
             if(arrayFile != null){
                 for(nFile = 0; nFile <= arrayFile.length; nFile++){
                     try{
@@ -72,12 +71,10 @@ public class ReadDay {
                     }catch(FileNotFoundException ex){
                     }catch(IOException e){
                     }catch (ArrayIndexOutOfBoundsException e){
-                    } catch (ClassNotFoundException e) {
-                        //e.printStackTrace();
-                    }
+                    }catch (ClassNotFoundException e) {}
                 } // end for
             }
-        }else{}
+        }
         return arrayList;
     }
 
@@ -86,9 +83,9 @@ public class ReadDay {
         String name;
         short nFile;
 
-        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/"+"0"); // obtiene el acceso a la memoria interna y obtiene el directorio
+        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/"+"0"); // obtiene el acceso a la memoria interna y obtiene el directorio
         if(path.isDirectory()){
-            File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/"+"0").listFiles(); // obtiene la lista de archivos que existen en el directorio
+            File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/"+"0").listFiles(); // obtiene la lista de archivos que existen en el directorio
             if(arrayFile != null){
                 for(nFile = 0; nFile <= arrayFile.length; nFile++){
                     try{
@@ -102,12 +99,10 @@ public class ReadDay {
                     }catch(FileNotFoundException ex){
                     }catch(IOException e){
                     }catch (ArrayIndexOutOfBoundsException e){
-                    } catch (ClassNotFoundException e) {
-                        e.printStackTrace();
-                    }
+                    }catch (ClassNotFoundException e) {}
                 } // end for
             }
-        }else{}
+        }
         return arrayList;
     }
 
@@ -116,9 +111,9 @@ public class ReadDay {
         String name;
         short nFile;
 
-        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/"+"1"); // obtiene el acceso a la memoria interna y obtiene el directorio
+        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/"+"1"); // obtiene el acceso a la memoria interna y obtiene el directorio
         if(path.isDirectory()){
-            File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/"+"1").listFiles(); // obtiene la lista de archivos que existen en el directorio
+            File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/"+"1").listFiles(); // obtiene la lista de archivos que existen en el directorio
             if(arrayFile != null){
                 for(nFile = 0; nFile <= arrayFile.length; nFile++){
                     try{
@@ -141,8 +136,8 @@ public class ReadDay {
                     }
                 } // end for
             }
-        }else{}
-        Log.d("list",""+arrayList.size());
+        }
+        //-----Log.d("list",""+arrayList.size());
         return arrayList;
     }
 
@@ -152,9 +147,9 @@ public class ReadDay {
 
         short nFile;
 
-        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/"+"2"); // obtiene el acceso a la memoria interna y obtiene el directorio
+        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/"+"2"); // obtiene el acceso a la memoria interna y obtiene el directorio
         if(path.isDirectory()){
-            File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/"+"2").listFiles(); // obtiene la lista de archivos que existen en el directorio
+            File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/"+"2").listFiles(); // obtiene la lista de archivos que existen en el directorio
             if(arrayFile != null){
                 for(nFile = 0; nFile <= arrayFile.length; nFile++){
                     try{
@@ -165,18 +160,13 @@ public class ReadDay {
                         HClases aux = (HClases) entrada.readObject();
                         arrayList.add(aux);
 
-                    }catch(FileNotFoundException ex){
-                        //Toast.makeText(getApplicationContext(),"Archivo no encontrado: "+ex.getMessage(),Toast.LENGTH_SHORT).show();
-                    }catch(IOException e){
-                        //Toast.makeText(getApplicationContext(), "Error IOE", Toast.LENGTH_SHORT).show();
-                    }catch (ArrayIndexOutOfBoundsException e){
-                        //Toast.makeText(getApplicationContext(), "Error Array: "+e.getMessage(), Toast.LENGTH_SHORT).show();
-                    } catch (ClassNotFoundException e) {
-                        e.printStackTrace();
-                    }
+                    }catch(FileNotFoundException ex){}
+                     catch(IOException e){}
+                     catch (ArrayIndexOutOfBoundsException e){}
+                     catch (ClassNotFoundException e) {}
                 } // end for
             }
-        }else{}
+        }
         return arrayList;
     }
 
@@ -186,9 +176,9 @@ public class ReadDay {
 
         short nFile;
 
-        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/"+"3"); // obtiene el acceso a la memoria interna y obtiene el directorio
+        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/"+"3"); // obtiene el acceso a la memoria interna y obtiene el directorio
         if(path.isDirectory()){
-            File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/"+"3").listFiles(); // obtiene la lista de archivos que existen en el directorio
+            File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/"+"3").listFiles(); // obtiene la lista de archivos que existen en el directorio
             if(arrayFile != null){
                 for(nFile = 0; nFile <= arrayFile.length; nFile++){
                     try{
@@ -199,18 +189,13 @@ public class ReadDay {
                         HClases aux = (HClases) entrada.readObject();
                         arrayList.add(aux);
 
-                    }catch(FileNotFoundException ex){
-                        //Toast.makeText(getApplicationContext(),"Archivo no encontrado: "+ex.getMessage(),Toast.LENGTH_SHORT).show();
-                    }catch(IOException e){
-                        //Toast.makeText(getApplicationContext(), "Error IOE", Toast.LENGTH_SHORT).show();
-                    }catch (ArrayIndexOutOfBoundsException e){
-                        //Toast.makeText(getApplicationContext(), "Error Array: "+e.getMessage(), Toast.LENGTH_SHORT).show();
-                    } catch (ClassNotFoundException e) {
-                        e.printStackTrace();
-                    }
+                    }catch(FileNotFoundException ex){}
+                     catch(IOException e){}
+                     catch (ArrayIndexOutOfBoundsException e){}
+                     catch (ClassNotFoundException e) {}
                 } // end for
             }
-        }else{}
+        }
         return arrayList;
     }
 
@@ -220,9 +205,9 @@ public class ReadDay {
 
         short nFile;
 
-        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/"+"4"); // obtiene el acceso a la memoria interna y obtiene el directorio
+        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/"+"4"); // obtiene el acceso a la memoria interna y obtiene el directorio
         if(path.isDirectory()){
-            File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/"+"4").listFiles(); // obtiene la lista de archivos que existen en el directorio
+            File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/"+"4").listFiles(); // obtiene la lista de archivos que existen en el directorio
             if(arrayFile != null){
                 for(nFile = 0; nFile <= arrayFile.length; nFile++){
                     try{
@@ -234,19 +219,12 @@ public class ReadDay {
 
                         arrayList.add(aux);
 
-                    }catch(FileNotFoundException ex){
-                        //Toast.makeText(getApplicationContext(),"Archivo no encontrado: "+ex.getMessage(),Toast.LENGTH_SHORT).show();
-                    }catch(IOException e){
-                        //Toast.makeText(getApplicationContext(), "Error IOE", Toast.LENGTH_SHORT).show();
-                    }catch (ArrayIndexOutOfBoundsException e){
-                        //Toast.makeText(getApplicationContext(), "Error Array: "+e.getMessage(), Toast.LENGTH_SHORT).show();
-                    } catch (ClassNotFoundException e) {
-                        e.printStackTrace();
-                    }
+                    }catch(FileNotFoundException ex){}
+                     catch(IOException e){}
+                     catch (ArrayIndexOutOfBoundsException e){}
+                     catch (ClassNotFoundException e) {}
                 } // end for
             }
-        }else{
-            //Snackbar.make(findViewById(android.R.id.content),"NO HAY ASIGNATURAS AGREGADAS",Snackbar.LENGTH_SHORT).show();
         }
         return arrayList;
     }

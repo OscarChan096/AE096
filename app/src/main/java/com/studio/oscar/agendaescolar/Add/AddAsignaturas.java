@@ -57,10 +57,10 @@ public class AddAsignaturas extends AppCompatActivity implements View.OnClickLis
                     String name = horario+obj;
 
                     try{
-                        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/7");
+                        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/7");
                         File fileName = new File(path.getAbsolutePath(), name);
                         if(path.isDirectory() && fileName.exists()){
-                            File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/7").listFiles();
+                            File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/7").listFiles();
 
                             int next = arrayFile.length;
 
@@ -107,9 +107,7 @@ public class AddAsignaturas extends AppCompatActivity implements View.OnClickLis
 
                     }catch(FileNotFoundException fnfe){
                         Toast.makeText(getApplicationContext(),"archivo no encontrado: "+fnfe.getMessage(),Toast.LENGTH_SHORT).show();
-                    }catch(IOException ioe){
-                        //Snackbar.make(view,"Error}: "+ioe.getMessage(), Snackbar.LENGTH_LONG);
-                    }
+                    }catch(IOException ioe){}
 
                     nameAsign.setText("");
                     docente.setText("");

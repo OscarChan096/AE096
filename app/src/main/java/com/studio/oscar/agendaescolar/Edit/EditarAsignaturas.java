@@ -22,19 +22,18 @@ import static android.os.Environment.getExternalStorageDirectory;
 
 public class EditarAsignaturas extends AppCompatActivity {
 
-    //String posicion;
     String name;
 
     @Override
     protected void onCreate(Bundle saved) {
         super.onCreate(saved);
         setContentView(R.layout.edit_asign_days);
-        final EditText asign = (EditText) findViewById(R.id.nameAsign);
-        final EditText hora = (EditText) findViewById(R.id.hora);
-        final EditText tohr = (EditText) findViewById(R.id.tohoradays);
-        final EditText profesor = (EditText) findViewById(R.id.profesor);
-        final EditText aula = (EditText) findViewById(R.id.aula);
-        Button btn = (Button)findViewById(R.id.btnGuardarAsign);
+        final EditText asign = findViewById(R.id.nameAsign);
+        final EditText hora = findViewById(R.id.hora);
+        final EditText tohr = findViewById(R.id.tohoradays);
+        final EditText profesor = findViewById(R.id.profesor);
+        final EditText aula = findViewById(R.id.aula);
+        Button btn = findViewById(R.id.btnGuardarAsign);
 
         Intent i = getIntent();
         String asignx = i.getStringExtra("asign");
@@ -81,7 +80,7 @@ public class EditarAsignaturas extends AppCompatActivity {
     void lunes(int clavehr, String a, String p, String au, String hora, String tohr){
 
         try{
-            File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/0");
+            File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/0");
             File fileName = new File(path.getAbsolutePath(), name);
             FileOutputStream fileOut = new FileOutputStream(fileName);
             ObjectOutputStream salida = new ObjectOutputStream(fileOut);
@@ -105,7 +104,7 @@ public class EditarAsignaturas extends AppCompatActivity {
     void martes(int clavehr, String a, String p, String au, String hora, String tohr){
 
         try{
-            File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/1");
+            File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/1");
             File fileName = new File(path.getAbsolutePath(), name);
             FileOutputStream fileOut = new FileOutputStream(fileName);
             ObjectOutputStream salida = new ObjectOutputStream(fileOut);
@@ -128,7 +127,7 @@ public class EditarAsignaturas extends AppCompatActivity {
 
     void miercoles(int clavehr, String a, String p, String au, String hora, String tohr){
         try{
-            File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/2");
+            File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/2");
             File fileName = new File(path.getAbsolutePath(), name);
             FileOutputStream fileOut = new FileOutputStream(fileName);
             ObjectOutputStream salida = new ObjectOutputStream(fileOut);
@@ -152,7 +151,7 @@ public class EditarAsignaturas extends AppCompatActivity {
     void  jueves(int clavehr, String a, String p, String au, String hora, String tohr){
 
         try{
-            File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/3");
+            File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/3");
             File fileName = new File(path.getAbsolutePath(), name);
             FileOutputStream fileOut = new FileOutputStream(fileName);
             ObjectOutputStream salida = new ObjectOutputStream(fileOut);
@@ -176,7 +175,7 @@ public class EditarAsignaturas extends AppCompatActivity {
     void viernes(int clavehr, String a, String p, String au, String hora, String tohr){
 
         try{
-            File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/4");
+            File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/4");
             File fileName = new File(path.getAbsolutePath(), name);
             FileOutputStream fileOut = new FileOutputStream(fileName);
             ObjectOutputStream salida = new ObjectOutputStream(fileOut);

@@ -46,7 +46,7 @@ public class EventosFragment extends Fragment {
 
     public void onActivityCreated(Bundle saved){
         super.onActivityCreated(saved);
-        lista = (ListView) getActivity().findViewById(R.id.listEventos);
+        lista = getActivity().findViewById(R.id.listEventos);
         arrayList = Read.ReadEventos();
         adapter = new AdapterEventos(getActivity(), arrayList);
         lista.setAdapter(adapter);
@@ -67,10 +67,11 @@ public class EventosFragment extends Fragment {
             AdapterView.AdapterContextMenuInfo info =
                     (AdapterView.AdapterContextMenuInfo)menuInfo;
 
-            //menu.setHeaderTitle(
-            //      lista.getAdapter().getItem(info.position).toString()); // se debe de ver solo el nombre de la materia
             varAux = lista.getAdapter().getItem(info.position).toString();
             posicionList = lista.getItemIdAtPosition(info.position);
+            final int pos = (int) posicionList;
+            Evt obj = arrayList.get(pos);
+            menu.setHeaderTitle(obj.getNameEvt().replaceAll("Nombre del evento: ", ""));
 
             inflater.inflate(R.menu.menu_context, menu);
         }
@@ -82,7 +83,7 @@ public class EventosFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.editar:
                 final int pos = (int)posicionList;
-                Evt obj = (Evt)arrayList.get(pos);
+                Evt obj = arrayList.get(pos);
                 String nameEvt = obj.getNameEvt();
                 String desc = obj.getDescripcion();
                 String fecha = obj.getFecha();
@@ -97,10 +98,10 @@ public class EventosFragment extends Fragment {
                 startActivity(editar);
                 return true;
             case R.id.delete:
-                File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/10").listFiles();
+                File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/10").listFiles();
                 for (short i = 0; i <= arrayFile.length; i++){
                     if(posicionList == i){
-                        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/10");
+                        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/10");
                         String getname = arrayFile[i].getName();
                         File fn = new File(path.getAbsolutePath(), getname);
                         fn.delete();

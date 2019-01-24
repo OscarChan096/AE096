@@ -17,7 +17,7 @@ public class ReadInicio {
         boolean bol = false;
         String obj = "0";
         String ext = ".usp";
-        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/00"); // obtiene el acceso a la memoria interna y obtiene el directorio
+        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/00"); // obtiene el acceso a la memoria interna y obtiene el directorio
         if (path.isDirectory()) {
             try {
                 String name = obj+ext;

@@ -2,7 +2,6 @@ package com.studio.oscar.agendaescolar.Dias;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -43,7 +42,6 @@ public class LectorClases extends AppCompatActivity {
         arrayList = ReadDay.Read(Integer.parseInt(dia));
         lista = findViewById(R.id.listLunes);
         lista.setEmptyView(findViewById(R.id.emptyElement));
-        //Snackbar.make(findViewById(android.R.id.content),"dia: "+dia+" size: "+arrayList.size(), Snackbar.LENGTH_LONG).show();
         //lista.setfChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
         AdapterDays adapter = new AdapterDays(this, arrayList);
@@ -146,7 +144,7 @@ public class LectorClases extends AppCompatActivity {
                 HClases hc = (HClases) arrayList.get(posicion);
                 String nombre = hc.getNombreArchivo();
 
-                File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/" + dia);
+                File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/" + dia);
                 File fn = new File(path.getAbsolutePath(), nombre);
                 fn.delete();
                 Intent home_intent = new Intent(getApplicationContext(),

@@ -68,11 +68,6 @@ public class Settings extends AppCompatActivity implements DialogoInicio.OnDialo
                 File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/00");
                 File fileName = new File(path.getAbsolutePath(), name);
                 if (path.isDirectory() && fileName.exists()) {
-                    //File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/00").listFiles();
-
-                    //int next = arrayFile.length;
-
-                    //name = horario + "(" + next + ")" + ext; //nfile
                     name = horario + ext;
                     fileName = new File(path.getAbsolutePath(), name);
                     FileOutputStream fileOut = new FileOutputStream(fileName);

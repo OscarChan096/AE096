@@ -28,7 +28,7 @@ public class AddNotas extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_notas);
 
-        boxTextNotas = (EditText)findViewById(R.id.inTarea);
+        boxTextNotas = findViewById(R.id.inTarea);
         btnSave = findViewById(R.id.btnguardar);
         btnSave.setOnClickListener(this);
 
@@ -44,10 +44,10 @@ public class AddNotas extends AppCompatActivity implements View.OnClickListener{
                 String name = notas+obj;
                 String text = boxTextNotas.getText().toString();
                 try{
-                    File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/9");
+                    File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/9");
                     File fileName = new File(path.getAbsolutePath(), name);
                     if(path.isDirectory() && fileName.exists()){
-                        File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/9").listFiles();
+                        File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/9").listFiles();
 
                         int next = arrayFile.length;
 
@@ -59,7 +59,7 @@ public class AddNotas extends AppCompatActivity implements View.OnClickListener{
                         Nota n = new Nota(text);
                         salida.writeObject(n);
 
-                        Toast.makeText(getApplicationContext(),"Agregado con exito",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),""+next,Toast.LENGTH_SHORT).show();
 
                     }else if(path.isDirectory()){
                         File fileNameX = new File(path.getAbsolutePath(), name);

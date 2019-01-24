@@ -25,12 +25,12 @@ public class AddInfoUser extends AppCompatActivity {
     protected void onCreate(Bundle saved){
         super.onCreate(saved);
         setContentView(R.layout.add_info_user);
-        final EditText nombre = (EditText)findViewById(R.id.nombre_info_user);
-        final EditText escuela = (EditText)findViewById(R.id.escuela_info_user);
-        final EditText especialidad = (EditText)findViewById(R.id.especialidad_info_user);
-        final EditText numTel = (EditText)findViewById(R.id.numtel_info_user);
-        final EditText nControl = (EditText)findViewById(R.id.ncontrol_info_user);
-        Button btn = (Button)findViewById(R.id.btn_info_user);
+        final EditText nombre = findViewById(R.id.nombre_info_user);
+        final EditText escuela = findViewById(R.id.escuela_info_user);
+        final EditText especialidad = findViewById(R.id.especialidad_info_user);
+        final EditText numTel = findViewById(R.id.numtel_info_user);
+        final EditText nControl = findViewById(R.id.ncontrol_info_user);
+        Button btn = findViewById(R.id.btn_info_user);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,10 +46,10 @@ public class AddInfoUser extends AppCompatActivity {
                 String name = evtx+ext;
 
                 try{
-                    File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/inf");
+                    File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/inf");
                     File fileName = new File(path.getAbsolutePath(), name);
                     if(path.isDirectory() && fileName.exists()){
-                        File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/inf").listFiles();
+                        File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/inf").listFiles();
 
                         int next = arrayFile.length;
 

@@ -67,16 +67,16 @@ public class AdapterEventos extends BaseAdapter {
 
         Evt dir = items.get(position);
 
-        TextView nameEvt = (TextView) v.findViewById(R.id.nameEvt);
+        TextView nameEvt = v.findViewById(R.id.nameEvt);
         nameEvt.setText(dir.getNameEvt());
 
-        TextView desc = (TextView) v.findViewById(R.id.descripcion_evento_adapter);
+        TextView desc = v.findViewById(R.id.descripcion_evento_adapter);
         desc.setText(dir.getDescripcion());
 
-        TextView fecha = (TextView) v.findViewById(R.id.fecha_adapter_evt);
+        TextView fecha = v.findViewById(R.id.fecha_adapter_evt);
         fecha.setText(dir.getFecha());
 
-        TextView hora = (TextView) v.findViewById(R.id.hora_adapter_evt);
+        TextView hora = v.findViewById(R.id.hora_adapter_evt);
         hora.setText(dir.getHora());
 
         return v;

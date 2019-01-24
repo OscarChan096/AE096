@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.studio.oscar.agendaescolar.Adapters.AdapterUsuario;
 import com.studio.oscar.agendaescolar.Add.AddInfoUser;
@@ -44,18 +43,18 @@ public class InfoUser extends AppCompatActivity implements FileExists, DialogoIn
     protected void onCreate(Bundle saved) {
         super.onCreate(saved);
         setContentView(R.layout.info_user);
-        lista = (ListView) findViewById(R.id.listUser);
+        lista = findViewById(R.id.listUser);
 
         /************************************************************************/
         String name;
-        arrayList = new ArrayList<Usuario>();
+        arrayList = new ArrayList<>();
         Usuario user;
 
         short nFile;
 
-        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/inf"); // obtiene el acceso a la memoria interna y obtiene el directorio
+        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/inf"); // obtiene el acceso a la memoria interna y obtiene el directorio
         if (path.isDirectory()) {
-            File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/inf").listFiles(); // obtiene la lista de archivos que existen en el directorio
+            File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/inf").listFiles(); // obtiene la lista de archivos que existen en el directorio
             if (arrayFile != null) {
                 for (nFile = 0; nFile <= arrayFile.length; nFile++) {
                     try {
@@ -155,7 +154,6 @@ public class InfoUser extends AppCompatActivity implements FileExists, DialogoIn
 
             Usuario aux = arrayList.get(0);
             menu.setHeaderTitle(aux.getnControl().replaceAll("Numero de control: ", ""));
-            //lista.getAdapter().getItem(info.position).toString()
             varAux = lista.getAdapter().getItem(info.position).toString();
             posicionList = lista.getItemIdAtPosition(info.position);
 
@@ -196,16 +194,16 @@ public class InfoUser extends AppCompatActivity implements FileExists, DialogoIn
                 return true;
             case R.id.delete:
                 if(bol) {
-                    File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/inf").listFiles();
+                    File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/inf").listFiles();
                     for (short i = 0; i <= arrayFile.length; i++) {
                         if (posicionList == i) {
-                            File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/inf");
+                            File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/inf");
                             String getname = arrayFile[i].getName();
                             File fn = new File(path.getAbsolutePath(), getname);
                             fn.delete();
-                            //Intent home_intent = new Intent(getApplicationContext(),
-                            //        lunes.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            //startActivity(home_intent);
+                            Intent home_intent = new Intent(getApplicationContext(),
+                                    InfoUser.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(home_intent);
                             break;
                         } else {
                             continue;
@@ -223,7 +221,7 @@ public class InfoUser extends AppCompatActivity implements FileExists, DialogoIn
     @Override
     public boolean FileExist() {
         String name = "infoUser.inf";
-        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/inf");
+        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/inf");
         File fileName = new File(path.getAbsolutePath(), name);
         if (fileName.exists()) {
             return true;

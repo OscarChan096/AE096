@@ -26,9 +26,9 @@ public class EditAsignDays extends AppCompatActivity {
     protected void onCreate(Bundle savedInstance){
         super.onCreate(savedInstance);
         setContentView(R.layout.editar_asignaturas);
-        nameAsign = (EditText)findViewById(R.id.nameAsign);
-        etProfesor = (EditText)findViewById(R.id.profesor);
-        etAula = (EditText)findViewById(R.id.aula);
+        nameAsign = findViewById(R.id.nameAsign);
+        etProfesor = findViewById(R.id.profesor);
+        etAula = findViewById(R.id.aula);
         btnSave = findViewById(R.id.btnGuardarAsign);
 
         Intent i = getIntent();
@@ -36,7 +36,6 @@ public class EditAsignDays extends AppCompatActivity {
         String profesor = i.getStringExtra("profesor");
         String aula = i.getStringExtra("aula");
         final String posicion = i.getStringExtra("posicion");
-        //Snackbar.make(findViewById(android.R.id.content), posicion+"", Snackbar.LENGTH_LONG).show();
 
         nameAsign.setText(asign);
         etProfesor.setText(profesor);
@@ -50,8 +49,8 @@ public class EditAsignDays extends AppCompatActivity {
                 String aulax = etAula.getText().toString();
 
                 try{
-                    File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/7");
-                    File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/7").listFiles();
+                    File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/7");
+                    File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/7").listFiles();
                     short pos = Short.parseShort(posicion);
                     String name = arrayFile[pos].getName(); //nfile
                     File fileName = new File(path.getAbsolutePath(), name);

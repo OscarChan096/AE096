@@ -70,7 +70,7 @@ public class AdapterNotas extends BaseAdapter {
 
         Nota dir = items.get(position);
 
-        TextView text = (TextView) v.findViewById(R.id.text);
+        TextView text = v.findViewById(R.id.text);
         text.setText(dir.getText());
 
         return v;

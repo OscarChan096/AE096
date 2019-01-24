@@ -50,9 +50,9 @@ public class DialogoInicio extends DialogFragment{
 
         builder.setView(v);
 
-        final EditText user = (EditText)v.findViewById(R.id.nombre_input);
-        final EditText password = (EditText)v.findViewById(R.id.contrasena_input);
-        Button signin = (Button) v.findViewById(R.id.entrar_boton);
+        final EditText user = v.findViewById(R.id.nombre_input);
+        final EditText password = v.findViewById(R.id.contrasena_input);
+        Button signin = v.findViewById(R.id.entrar_boton);
 
         signin.setOnClickListener(
                 new View.OnClickListener() {

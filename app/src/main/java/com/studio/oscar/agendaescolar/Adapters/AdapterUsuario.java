@@ -64,19 +64,19 @@ public class AdapterUsuario extends BaseAdapter {
 
         Usuario dir = items.get(position);
 
-        TextView control = (TextView) v.findViewById(R.id.control_user);
+        TextView control = v.findViewById(R.id.control_user);
         control.setText(dir.getnControl());
 
-        TextView nombre = (TextView) v.findViewById(R.id.nombre_user);
+        TextView nombre = v.findViewById(R.id.nombre_user);
         nombre.setText(dir.getNombre());
 
-        TextView escuela = (TextView) v.findViewById(R.id.escuela_user);
+        TextView escuela = v.findViewById(R.id.escuela_user);
         escuela.setText(dir.getEscuela());
 
-        TextView especialidad = (TextView) v.findViewById(R.id.especialidad_user);
+        TextView especialidad = v.findViewById(R.id.especialidad_user);
         especialidad.setText(dir.getEspecialidad());
 
-        TextView numTel = (TextView) v.findViewById(R.id.numtel_user);
+        TextView numTel = v.findViewById(R.id.numtel_user);
         numTel.setText(dir.getNumTel());
 
         return v;

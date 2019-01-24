@@ -52,13 +52,13 @@ public class AdapterHorario extends BaseAdapter {
     public View getView(int posicion, View convertView, ViewGroup parent){
         View v = convertView;
         if(convertView == null){
-            LayoutInflater inf = (LayoutInflater)fragment.getLayoutInflater();
+            LayoutInflater inf = fragment.getLayoutInflater();
             v = inf.inflate(R.layout.adapter_hora, null);
         }
 
         tilesDias dir = items.get(posicion);
 
-        TextView title = (TextView) v.findViewById(R.id.title);
+        TextView title = v.findViewById(R.id.title);
         title.setText(dir.getDay());
 
         ImageView imagen = v.findViewById(R.id.imageView);

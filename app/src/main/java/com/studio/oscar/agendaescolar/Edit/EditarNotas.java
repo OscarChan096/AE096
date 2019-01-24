@@ -29,7 +29,7 @@ public class EditarNotas extends AppCompatActivity implements View.OnClickListen
         super.onCreate(saved);
         setContentView(R.layout.editar_notas);
 
-        boxTextNotas = (EditText)findViewById(R.id.inTarea);
+        boxTextNotas = findViewById(R.id.inTarea);
         btnSave = findViewById(R.id.btnguardar);
 
         Intent i = getIntent();
@@ -55,8 +55,8 @@ public class EditarNotas extends AppCompatActivity implements View.OnClickListen
                 case R.id.btnguardar:
 
                     try{
-                        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/9");
-                        File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/9").listFiles();
+                        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/9");
+                        File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/9").listFiles();
                         short pos = Short.parseShort(posicion);
                         String name = arrayFile[pos].getName(); //nfile
                         File fileName = new File(path.getAbsolutePath(), name);
@@ -74,7 +74,6 @@ public class EditarNotas extends AppCompatActivity implements View.OnClickListen
                         Toast.makeText(getApplicationContext(), "Error IOE", Toast.LENGTH_SHORT).show();
                     }
                     boxTextNotas.setText("");
-                    //Toast.makeText(getApplicationContext(),"salio del case", Toast.LENGTH_SHORT).show();
                     break;
             }
         }

@@ -29,10 +29,10 @@ public class EditarEventos extends AppCompatActivity implements View.OnClickList
         super.onCreate(saved);
         setContentView(R.layout.editar_eventos);
 
-        nombreEvento = (EditText)findViewById(R.id.nombre_evento);
-        descripcion = (EditText)findViewById(R.id.descripcion_evento);
-        fecha = (EditText)findViewById(R.id.fecha_evento);
-        hora = (EditText)findViewById(R.id.hora_evento);
+        nombreEvento = findViewById(R.id.nombre_evento);
+        descripcion = findViewById(R.id.descripcion_evento);
+        fecha = findViewById(R.id.fecha_evento);
+        hora = findViewById(R.id.hora_evento);
         btnGuardar = findViewById(R.id.guardar_evt);
 
         Intent i = getIntent();
@@ -71,8 +71,8 @@ public class EditarEventos extends AppCompatActivity implements View.OnClickList
                 case R.id.guardar_evt:
 
                     try{
-                        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/10");
-                        File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.chan.horario/10").listFiles();
+                        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/10");
+                        File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/10").listFiles();
                         short pos = Short.parseShort(posicion);
                         String name = arrayFile[pos].getName(); //nfile
                         File fileName = new File(path.getAbsolutePath(), name);

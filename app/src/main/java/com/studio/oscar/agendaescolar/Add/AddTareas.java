@@ -59,7 +59,8 @@ public class AddTareas extends AppCompatActivity {
         String name;
 
         File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/7"); // obtiene el acceso a la memoria interna y obtiene el directorio
-        File fileName = new File(path.getAbsolutePath(), "horario.obj");
+        File[] arrayFilex = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/7").listFiles();
+        File fileName = new File(path.getAbsolutePath(), name = arrayFilex[0].getName());
         if(path.isDirectory() && fileName.exists()){
             File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/7").listFiles(); // obtiene la lista de archivos que existen en el directorio
             String[] arrayStr  = new String[arrayFile.length];

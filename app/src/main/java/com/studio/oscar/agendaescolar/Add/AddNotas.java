@@ -45,23 +45,34 @@ public class AddNotas extends AppCompatActivity implements View.OnClickListener{
                 String text = boxTextNotas.getText().toString();
                 try{
                     File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/9");
-                    File fileName = new File(path.getAbsolutePath(), name);
-                    if(path.isDirectory() && fileName.exists()){
+                    File fileName;
+                    if(path.isDirectory()){
                         File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/9").listFiles();
 
                         int next = arrayFile.length;
 
                         name = notas+"("+next+")"+obj; //nfile
                         fileName = new File(path.getAbsolutePath(), name);
+                        while(true){
+                            if(fileName.exists()){
+                                next++;
+                                name = notas+"("+next+")"+obj;
+                                fileName = new File(path.getAbsolutePath(), name);
+                            }else{
+                                break;
+                            }
+
+                        }
+
                         FileOutputStream fileOut = new FileOutputStream(fileName);
                         ObjectOutputStream salida = new ObjectOutputStream(fileOut);
 
                         Nota n = new Nota(text);
                         salida.writeObject(n);
 
-                        Toast.makeText(getApplicationContext(),""+next,Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(),""+next,Toast.LENGTH_SHORT).show();
 
-                    }else if(path.isDirectory()){
+                    }/*else if(path.isDirectory()){
                         File fileNameX = new File(path.getAbsolutePath(), name);
                         FileOutputStream fileOut = new FileOutputStream(fileNameX);
                         ObjectOutputStream salida = new ObjectOutputStream(fileOut);
@@ -70,7 +81,7 @@ public class AddNotas extends AppCompatActivity implements View.OnClickListener{
                         salida.writeObject(n);
 
                         Toast.makeText(getApplicationContext(),"Agregado con exito",Toast.LENGTH_SHORT).show();
-                    }else{
+                    }*/else{
                         path.mkdirs(); // crea la carpeta
                         File fileNameX = new File(path.getAbsolutePath(), name);
                         FileOutputStream fileOut = new FileOutputStream(fileNameX);

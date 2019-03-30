@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.studio.oscar.agendaescolar.Datos.Read;
+import com.studio.oscar.agendaescolar.Fragments.NotasFragment;
 import com.studio.oscar.agendaescolar.Objetos.Nota;
 import com.studio.oscar.agendaescolar.R;
 
@@ -70,18 +72,7 @@ public class AddNotas extends AppCompatActivity implements View.OnClickListener{
                         Nota n = new Nota(text);
                         salida.writeObject(n);
 
-                        //Toast.makeText(getApplicationContext(),""+next,Toast.LENGTH_SHORT).show();
-
-                    }/*else if(path.isDirectory()){
-                        File fileNameX = new File(path.getAbsolutePath(), name);
-                        FileOutputStream fileOut = new FileOutputStream(fileNameX);
-                        ObjectOutputStream salida = new ObjectOutputStream(fileOut);
-
-                        Nota n = new Nota(text);
-                        salida.writeObject(n);
-
-                        Toast.makeText(getApplicationContext(),"Agregado con exito",Toast.LENGTH_SHORT).show();
-                    }*/else{
+                    }else{
                         path.mkdirs(); // crea la carpeta
                         File fileNameX = new File(path.getAbsolutePath(), name);
                         FileOutputStream fileOut = new FileOutputStream(fileNameX);
@@ -103,4 +94,4 @@ public class AddNotas extends AppCompatActivity implements View.OnClickListener{
         }
     }
 
-}
+} // end class

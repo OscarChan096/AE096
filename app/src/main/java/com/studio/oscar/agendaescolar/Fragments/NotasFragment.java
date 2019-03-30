@@ -31,7 +31,7 @@ public class NotasFragment extends Fragment {
     ListView lista;
     String varAux;
     long posicionList;
-    ArrayList<Nota> arrayList;
+    public ArrayList<Nota> arrayList;
     AdapterNotas adapter;
     final private String nameClass = "NotasFragment";
 
@@ -39,6 +39,12 @@ public class NotasFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup group, Bundle saved){
         setHasOptionsMenu(true);
         return inflater.inflate(R.layout.notas, group, false);
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        adapter.UpdateList(Read.ReadNotas());
     }
 
     @Override

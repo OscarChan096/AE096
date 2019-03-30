@@ -18,10 +18,10 @@ public class ReadInicio {
         String obj = "0";
         String ext = ".usp";
         File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/00"); // obtiene el acceso a la memoria interna y obtiene el directorio
-        if (path.isDirectory()) {
+        String name = obj+ext;
+        File fileName = new File(path.getAbsolutePath(), name);
+        if (path.isDirectory() && fileName.exists()) {
             try {
-                String name = obj+ext;
-                File fileName = new File(path.getAbsolutePath(), name);
                 ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(fileName));
 
                 Inf aux = (Inf) entrada.readObject();

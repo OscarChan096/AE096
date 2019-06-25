@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:padding="@dimen/dialog_body">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="Comentarios acerca del error"
+        android:textColor="#a4a4a4"/>
+
+    <EditText
+        android:id="@+id/inReporte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/normal_padding"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:lines="10"
+        android:background="@null"
+        android:gravity="top|start"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Avanzado"
+            android:textColor="#000"
+            android:textStyle="italic"/>
+
+        <TextView
+            android:layout_width="35dp"
+            android:layout_height="2dp"/>
+
+        <Button
+            android:id="@+id/btnReportar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reportar"
+            android:textColor="#fff"
+            android:background="@drawable/boton_redondo"/>
+
+    </LinearLayout>
+
+</LinearLayout>

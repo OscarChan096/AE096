@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.studio.oscar.agendaescolar.Adapters.AdapterUsuario;
 import com.studio.oscar.agendaescolar.Add.AddInfoUser;
@@ -106,10 +107,20 @@ public class InfoUser extends AppCompatActivity implements FileExists, DialogoIn
                     Intent id = new Intent(getApplicationContext(), AddInfoUser.class);
                     startActivity(id);
                 } else {
+                    File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/00"); // obtiene el acceso a la memoria interna y obtiene el directorio
+                    String name = "0.usp";
+                    final File fileName = new File(path.getAbsolutePath(), name);
                     Snackbar.make(findViewById(android.R.id.content), "Ya existe informacion de usuario", Snackbar.LENGTH_LONG)
                             .setAction("Editar", new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
+                                    if(fileName.exists()){
+                                        FragmentManager fragmentManager = getSupportFragmentManager();
+                                        new DialogoInicio().show(fragmentManager, "Inicio");
+                                    }else{
+                                        bol = true;
+                                    }
+
                                     if(bol) {
                                         Usuario aux = (Usuario) arrayList.get(0);
                                         String nombre = aux.getNombre();
@@ -159,8 +170,15 @@ public class InfoUser extends AppCompatActivity implements FileExists, DialogoIn
 
             inflater.inflate(R.menu.menu_context_days, menu);
         }
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        new DialogoInicio().show(fragmentManager, "Inicio");
+        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/00"); // obtiene el acceso a la memoria interna y obtiene el directorio
+        String name = "0.usp";
+        File fileName = new File(path.getAbsolutePath(), name);
+        if(fileName.exists()) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            new DialogoInicio().show(fragmentManager, "Inicio");
+        }else{
+            bol = true;
+        }
     }
 
     @Override

@@ -6,10 +6,11 @@
 
     <string name="version_alpha">Alpha2</string>
     <string name="version_beta">Beta1</string>
-    <string name="version_estable">Version 1.2.1</string>
-    <string name="build">Build 183</string>
+    <string name="version_estable">Version 1.2.2</string>
+    <string name="build">Build 186</string>
 
-
+    <string name="registrarse">Registrarse</string>
+    <string name="user">Usuario</string>
     <string name="info_text">Indentifiquese</string>
     <string name="crear_boton">CREAR CUENTA</string>
     <string name="nombre_input">Nombre</string>

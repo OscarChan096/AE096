@@ -38,6 +38,9 @@ public class Settings extends AppCompatActivity implements DialogoInicio.OnDialo
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/00"); // obtiene el acceso a la memoria interna y obtiene el directorio
+                File fileName = new File(path.getAbsolutePath(), "0.usp");
+                bol = (!fileName.exists())?true:false;
                 if(bol) {
                     saveInf(user.getText().toString(), password.getText().toString());
                 }else{

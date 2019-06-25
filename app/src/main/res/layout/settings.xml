@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ScrollView
@@ -15,14 +17,15 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Usuario"
-                android:textStyle="bold"
+                android:text="@string/registrarse"
+                android:textStyle="bold|italic"
                 android:padding="12dp"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="20dp"
+                android:hint="@string/user"
                 android:inputType="textMultiLine"
                 android:id="@+id/inUsuario"
                 android:drawableStart="@drawable/diamante"
@@ -31,19 +34,13 @@
                 android:background="@android:drawable/editbox_background_normal"
                 android:drawableLeft="@drawable/diamante" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Contraseña"
-                android:textStyle="bold"
-                android:padding="12dp"/>
-
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="20dp"
                 android:layout_margin="10dp"
                 android:inputType="textPassword"
+                android:hint="Contraseña"
                 android:maxLength="50"
                 android:ems="10"
                 android:id="@+id/inPassword"

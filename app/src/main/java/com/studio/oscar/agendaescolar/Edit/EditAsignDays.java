@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.studio.oscar.agendaescolar.Datos.ConversionObj;
 import com.studio.oscar.agendaescolar.Objetos.HClases;
 import com.studio.oscar.agendaescolar.R;
 
@@ -73,5 +74,6 @@ public class EditAsignDays extends AppCompatActivity {
 
             }
         });
+        ConversionObj.ConverterToAgenda();
     }
 }

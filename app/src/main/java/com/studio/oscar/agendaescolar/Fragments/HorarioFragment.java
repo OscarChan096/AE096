@@ -1,5 +1,6 @@
 package com.studio.oscar.agendaescolar.Fragments;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,18 +13,40 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.studio.oscar.agendaescolar.Activities.About;
 import com.studio.oscar.agendaescolar.Activities.InfoUser;
-import com.studio.oscar.agendaescolar.Activities.Settings;
 import com.studio.oscar.agendaescolar.Adapters.AdapterHorario;
 import com.studio.oscar.agendaescolar.Add.AddAsignaturas;
 import com.studio.oscar.agendaescolar.Dias.LectorClases;
 import com.studio.oscar.agendaescolar.Objetos.tilesDias;
 import com.studio.oscar.agendaescolar.R;
+import com.studio.oscar.agendaescolar.ui.main.PageViewModel;
 
 import java.util.ArrayList;
 
 public class HorarioFragment extends Fragment {
+
+    private static final String ARG_SECTION_NUMBER = "section_number";
+
+    private PageViewModel pageViewModel;
+
+    public static HorarioFragment newInstance (int index){
+        HorarioFragment fragment = new HorarioFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt(ARG_SECTION_NUMBER,index);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle saved){
+        super.onCreate(saved);
+        pageViewModel = ViewModelProviders.of(this).get(PageViewModel.class);
+        int index = 2;
+        if (getArguments() != null){
+            index = getArguments().getInt(ARG_SECTION_NUMBER);
+        }
+        pageViewModel.setIndex(index);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup group, Bundle saved){
@@ -83,7 +106,7 @@ public class HorarioFragment extends Fragment {
     /***************** botones de la parte superior *******************************/
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menubar, menu);
+        inflater.inflate(R.menu.menubarhorario, menu);
         super.onCreateOptionsMenu(menu,inflater);
     }
 
@@ -97,14 +120,6 @@ public class HorarioFragment extends Fragment {
             case R.id.usuario:
                 Intent InfoUser = new Intent(getActivity(), InfoUser.class);
                 startActivity(InfoUser);
-                return true;
-            case R.id.settings:
-                Intent config = new Intent(getActivity(), Settings.class);
-                startActivity(config);
-                return true;
-            case R.id.about:
-                Intent About = new Intent(getActivity(), About.class);
-                startActivity(About);
                 return true;
             default:
                 return super.onOptionsItemSelected(menuItem);

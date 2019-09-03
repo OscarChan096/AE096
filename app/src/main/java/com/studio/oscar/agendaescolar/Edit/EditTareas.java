@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.studio.oscar.agendaescolar.Datos.ConversionObj;
 import com.studio.oscar.agendaescolar.Objetos.HClases;
 import com.studio.oscar.agendaescolar.Objetos.homework;
 import com.studio.oscar.agendaescolar.R;
@@ -51,6 +52,7 @@ public class EditTareas extends AppCompatActivity implements View.OnClickListene
         fechaEntrega.setText(fecha_entrega);
 
         btnSave.setOnClickListener(this);
+        ConversionObj.ConverterToAgenda();
 
     }
 

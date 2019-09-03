@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.studio.oscar.agendaescolar.Datos.ConversionObj;
 import com.studio.oscar.agendaescolar.Objetos.HClases;
 import com.studio.oscar.agendaescolar.Objetos.homework;
 import com.studio.oscar.agendaescolar.R;
@@ -158,6 +159,7 @@ public class AddTareas extends AppCompatActivity {
         }else{
             Toast.makeText(getApplicationContext(),"No existen asignaturas", Toast.LENGTH_SHORT).show();
         }
+        ConversionObj.ConverterToAgenda();
 
     }
 

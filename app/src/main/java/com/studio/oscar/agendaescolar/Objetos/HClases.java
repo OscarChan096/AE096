@@ -6,6 +6,9 @@ public class HClases implements Serializable, Comparable<HClases> {
 
     private int id;
     private String asignatura, profesor, aula, hora, tohora, nombreArchivo;
+    private int diaModificacion, mesModificacion, anioModificacion;
+    private String dia;
+    private String name_activity;
 
     public HClases(int id, String asignatura, String profesor, String aula, String hora, String tohora){
         this.id = id;
@@ -84,6 +87,46 @@ public class HClases implements Serializable, Comparable<HClases> {
 
     public void setTohora(String tohora) {
         this.tohora = tohora;
+    }
+
+    public int getDiaModificacion() {
+        return diaModificacion;
+    }
+
+    public void setDiaModificacion(int diaModificacion) {
+        this.diaModificacion = diaModificacion;
+    }
+
+    public int getMesModificacion() {
+        return mesModificacion;
+    }
+
+    public void setMesModificacion(int mesModificacion) {
+        this.mesModificacion = mesModificacion;
+    }
+
+    public int getAnioModificacion() {
+        return anioModificacion;
+    }
+
+    public void setAnioModificacion(int anioModificacion) {
+        this.anioModificacion = anioModificacion;
+    }
+
+    public String getDia() {
+        return dia;
+    }
+
+    public void setDia(String dia) {
+        this.dia = dia;
+    }
+
+    public String getName_activity() {
+        return name_activity;
+    }
+
+    public void setName_activity(String name_activity) {
+        this.name_activity = name_activity;
     }
 
     @Override

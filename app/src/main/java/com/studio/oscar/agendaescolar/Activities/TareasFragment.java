@@ -1,21 +1,19 @@
-package com.studio.oscar.agendaescolar.Fragments;
+package com.studio.oscar.agendaescolar.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.ContextMenu;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.studio.oscar.agendaescolar.Activities.Settings;
 import com.studio.oscar.agendaescolar.Adapters.AdapterTareas;
 import com.studio.oscar.agendaescolar.Add.AddTareas;
+import com.studio.oscar.agendaescolar.Datos.ConversionObj;
 import com.studio.oscar.agendaescolar.Datos.Read;
 import com.studio.oscar.agendaescolar.Edit.EditTareas;
 import com.studio.oscar.agendaescolar.Objetos.homework;
@@ -26,7 +24,7 @@ import java.util.ArrayList;
 
 import static android.os.Environment.getExternalStorageDirectory;
 
-public class TareasFragment extends Fragment {
+public class TareasFragment extends AppCompatActivity {
 
     ListView lista;
     String varAux;
@@ -35,52 +33,34 @@ public class TareasFragment extends Fragment {
     AdapterTareas adapter;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup group, Bundle saved){
-        //para agregar el boton en la parte del toolbar
-        setHasOptionsMenu(true);
-        return inflater.inflate(R.layout.tareas, group, false);
-    }
+    public void onCreate(Bundle saved){
+        super.onCreate(saved);
+        setContentView(R.layout.tareas);
 
-    @Override
-    public void onActivityCreated(Bundle saved){
-        super.onActivityCreated(saved);
-        lista = getActivity().findViewById(R.id.lisTareas);
+        lista = findViewById(R.id.lisTareas);
         arrayList = Read.ReadTareas();
-        adapter = new AdapterTareas(getActivity(), arrayList);
+        adapter = new AdapterTareas(this, arrayList);
         lista.setAdapter(adapter);
-        lista.setEmptyView(getActivity().findViewById(R.id.emptyElement));
+        lista.setEmptyView(findViewById(R.id.emptyElement));
 
         registerForContextMenu(lista);
-
     }
-
 
 
     /***************** botones de la parte superior *******************************/
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menubar, menu);
-        super.onCreateOptionsMenu(menu,inflater);
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.add_menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem menuItem){
         switch(menuItem.getItemId()){
             case R.id.action_add:
-                Intent add = new Intent(getActivity(), AddTareas.class);
+                Intent add = new Intent(this, AddTareas.class);
                 startActivity(add);
-                return true;
-            case R.id.usuario:
-                Intent InfoUser = new Intent(getActivity(), com.studio.oscar.agendaescolar.Activities.InfoUser.class);
-                startActivity(InfoUser);
-                return true;
-            case R.id.settings:
-                Intent config = new Intent(getActivity(), Settings.class);
-                startActivity(config);
-                return true;
-            case R.id.about:
-                Intent About = new Intent(getActivity(), com.studio.oscar.agendaescolar.Activities.About.class);
-                startActivity(About);
                 return true;
             default:
                 return super.onOptionsItemSelected(menuItem);
@@ -94,7 +74,7 @@ public class TareasFragment extends Fragment {
     {
         super.onCreateContextMenu(menu, v, menuInfo);
 
-        MenuInflater inflater = getActivity().getMenuInflater();
+        MenuInflater inflater = getMenuInflater();
 
         if(v.getId() == R.id.lisTareas){
             AdapterView.AdapterContextMenuInfo info =
@@ -121,7 +101,7 @@ public class TareasFragment extends Fragment {
                 String entrega = obj.getFechaEntrega();
                 String tarea = obj.getTarea();
 
-                Intent editar = new Intent(getActivity(),EditTareas.class);
+                Intent editar = new Intent(this,EditTareas.class);
                 editar.putExtra("asign",asign.replaceAll("Asignatura: ",""));
                 editar.putExtra("entrega",entrega.replaceAll("Fecha de entrega: ",""));
                 editar.putExtra("tarea",tarea);
@@ -137,6 +117,7 @@ public class TareasFragment extends Fragment {
                         File fn = new File(path.getAbsolutePath(), getname);
                         fn.delete();
                         adapter.UpdateList(Read.ReadTareas());
+                        ConversionObj.ConverterToAgenda();
                         break;
                     }else{
                         continue;

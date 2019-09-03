@@ -13,6 +13,7 @@ import android.widget.ListView;
 
 import com.studio.oscar.agendaescolar.Adapters.AdapterDays;
 import com.studio.oscar.agendaescolar.Add.AddToDay;
+import com.studio.oscar.agendaescolar.Datos.ConversionObj;
 import com.studio.oscar.agendaescolar.Datos.ReadDay;
 import com.studio.oscar.agendaescolar.Edit.EditarAsignaturas;
 import com.studio.oscar.agendaescolar.Objetos.HClases;
@@ -151,6 +152,7 @@ public class LectorClases extends AppCompatActivity {
                         LectorClases.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 home_intent.putExtra("dia", dia);
                 home_intent.putExtra("title", title);
+                ConversionObj.ConverterToAgenda();
                 startActivity(home_intent);
                 return true;
             default:

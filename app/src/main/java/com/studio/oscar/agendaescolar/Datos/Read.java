@@ -1,6 +1,8 @@
 package com.studio.oscar.agendaescolar.Datos;
 
-import com.studio.oscar.agendaescolar.Objetos.Evt;
+import android.util.Log;
+
+import com.studio.oscar.agendaescolar.Objetos.Agenda;
 import com.studio.oscar.agendaescolar.Objetos.Nota;
 import com.studio.oscar.agendaescolar.Objetos.homework;
 
@@ -88,40 +90,30 @@ public class Read {
         return arrayList;
     }
 
-    public static ArrayList ReadEventos() {
-        String name;
-        ArrayList<Evt> arrayList = new ArrayList<>();
-        Evt e;
+    public static ArrayList getListAgenda() {
+        String name = "agenda.ag";
+        ArrayList<Agenda> arrayList = new ArrayList<>();
 
-        short nFile;
-
-        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/10"); // obtiene el acceso a la memoria interna y obtiene el directorio
+        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/11a"); // obtiene el acceso a la memoria interna y obtiene el directorio
         if (path.isDirectory()) {
-            File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/10").listFiles(); // obtiene la lista de archivos que existen en el directorio
-            if (arrayFile != null) {
-                for (nFile = 0; nFile <= arrayFile.length; nFile++) {
-                    try {
-                        name = arrayFile[nFile].getName();
-                        File fileName = new File(path.getAbsolutePath(), name);
-                        ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(fileName));
+            Log.d("ReadAgenda","existe el directorio");
+            try {
+                File fileName = new File(path.getAbsolutePath(), name);
+                ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(fileName));
 
-                        Evt aux = (Evt) entrada.readObject();
-                        String nameEvt = "Nombre del evento: " + aux.getNameEvt();
-                        String desc = aux.getDescripcion();
-                        String fecha = "Fecha: " + aux.getFecha();
-                        String hora = "Hora: " + aux.getHora();
+                arrayList = (ArrayList) entrada.readObject();
+                Log.d("ReadArrayAgenda","Lectura correcta del archivo");
 
-                        e = new Evt(nameEvt, desc, fecha, hora);
-                        arrayList.add(e);
-
-                    } catch (FileNotFoundException ex) {
-                    } catch (IOException ex) {
-                    } catch (ArrayIndexOutOfBoundsException ex) {
-                    } catch (ClassNotFoundException ex) {
-                        ex.printStackTrace();
-                    }
-                } // end for
+            } catch (FileNotFoundException ex) {
+                Log.d("FileNotFoundException",ex.getMessage());
+            } catch (IOException e) {
+                Log.d("IOException",e.getMessage());
+            } catch (ArrayIndexOutOfBoundsException e) {
+                Log.d("indexOut",e.getMessage());
+            } catch (ClassNotFoundException e) {
+                Log.d("ClassNotFoundException",e.getMessage());
             }
+
         }
         return arrayList;
     }

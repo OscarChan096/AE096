@@ -45,4 +45,14 @@
         android:src="@mipmap/ic_launcher_foreground"
         android:layout_weight="0.15" />
 
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="300dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/version_estable"/>
+
 </LinearLayout>

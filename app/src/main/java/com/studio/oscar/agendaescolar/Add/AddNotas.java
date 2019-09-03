@@ -7,8 +7,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.studio.oscar.agendaescolar.Datos.Read;
-import com.studio.oscar.agendaescolar.Fragments.NotasFragment;
 import com.studio.oscar.agendaescolar.Objetos.Nota;
 import com.studio.oscar.agendaescolar.R;
 

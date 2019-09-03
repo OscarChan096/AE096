@@ -174,13 +174,11 @@ public class ReadDay {
         ArrayList<HClases> arrayList = new ArrayList<>();
         String name;
 
-        short nFile;
-
         File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/"+"3"); // obtiene el acceso a la memoria interna y obtiene el directorio
         if(path.isDirectory()){
             File[] arrayFile = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/"+"3").listFiles(); // obtiene la lista de archivos que existen en el directorio
             if(arrayFile != null){
-                for(nFile = 0; nFile <= arrayFile.length; nFile++){
+                for(short nFile = 0; nFile <= arrayFile.length; nFile++){
                     try{
                         name = arrayFile[nFile].getName();
                         File fileName = new File(path.getAbsolutePath(), name);
@@ -189,10 +187,18 @@ public class ReadDay {
                         HClases aux = (HClases) entrada.readObject();
                         arrayList.add(aux);
 
-                    }catch(FileNotFoundException ex){}
-                     catch(IOException e){}
-                     catch (ArrayIndexOutOfBoundsException e){}
-                     catch (ClassNotFoundException e) {}
+                    }catch(FileNotFoundException ex){
+                        //Log.d("ReadJuevesFNFE",ex.getMessage());
+                    }
+                     catch(IOException e){
+                        //Log.d("ReadJuevesIOE",e.getMessage());
+                     }
+                     catch (ArrayIndexOutOfBoundsException e){
+                        //Log.d("ReadJuevesAIOBE",e.getMessage());
+                     }
+                     catch (ClassNotFoundException e) {
+                        //Log.d("ReadJuevesCNFE",e.getMessage());
+                     }
                 } // end for
             }
         }

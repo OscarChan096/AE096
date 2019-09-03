@@ -16,8 +16,8 @@ public class About extends AppCompatActivity {
     }
 
     public void aboutdev(View v){
-        Intent i = new Intent(About.this, about_dev.class);
-        startActivity(i);
+        //Intent i = new Intent(About.this, about_dev.class);
+        //startActivity(i);
     }
 
 }

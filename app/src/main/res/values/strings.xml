@@ -4,28 +4,28 @@
     <string name="title_dashboard">tareas</string>
     <string name="title_notifications">Notifications</string>
 
-    <string name="version_alpha">Alpha2</string>
-    <string name="version_beta">Beta1</string>
-    <string name="version_estable">Version 1.2.2</string>
-    <string name="build">Build 186</string>
+    <string name="version_alpha">Alpha</string>
+    <string name="version_beta">Beta</string>
+    <string name="version_estable">Version 2.0</string>
+    <string name="build">Build 189</string>
 
-    <string name="registrarse">Registrarse</string>
     <string name="user">Usuario</string>
+    <string name="registrarse">Registrarse</string>
     <string name="info_text">Indentifiquese</string>
-    <string name="crear_boton">CREAR CUENTA</string>
     <string name="nombre_input">Nombre</string>
     <string name="contrasena_input">Constraseña</string>
-    <string name="recordar_check">Recordarme</string>
-    <string name="olvidar_text">¿Olvidaste tu Contraseña?</string>
     <string name="entrar_boton">ENTRAR</string>
-    <string name="cliente_label">Cliente</string>
-    <string name="producto_label">Producto</string>
     <string name="fecha_label">Fecha</string>
-    <string name="prioridad_label">Prioridad</string>
     <string name="notas_label">Notas</string>
     <string name="notas_hint">Notas</string>
     <string name="cancel">Cancelar</string>
     <string name="edit">Editar</string>
     <string name="save">Guardar</string>
+
+    <string name="agenda">Agenda</string>
+    <string name="horario">Horario</string>
+    <string name="tareas">Tareas</string>
+    <string name="notas">Notas</string>
+    <string name="eventos">Eventos</string>
 
 </resources>

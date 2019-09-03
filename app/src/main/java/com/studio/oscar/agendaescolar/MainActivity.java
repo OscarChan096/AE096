@@ -5,25 +5,19 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.studio.oscar.agendaescolar.Fragments.EventosFragment;
-import com.studio.oscar.agendaescolar.Fragments.HorarioFragment;
-import com.studio.oscar.agendaescolar.Fragments.NotasFragment;
-import com.studio.oscar.agendaescolar.Fragments.TareasFragment;
+import com.studio.oscar.agendaescolar.Datos.ConversionObj;
+import com.studio.oscar.agendaescolar.ui.main.SectionsPagerAdapter;
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity{
 
-    BottomNavigationView bottomNavigationView;
     private static final int SOLICITUD_PERMISO_WRITE_CALL_LOG = 0;
 
     @Override
@@ -31,43 +25,13 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
-        bottomNavigationView.setOnNavigationItemSelectedListener(this);
-        setInitialFragment();
+        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
+        ViewPager viewPager = findViewById(R.id.view_pager);
+        viewPager.setAdapter(sectionsPagerAdapter);
+        TabLayout tabs = findViewById(R.id.tabs);
+        tabs.setupWithViewPager(viewPager);
+
         permissionStorageExternal();
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item){
-        Fragment fragment = null;
-        switch (item.getItemId()){
-            case R.id.navigation_horario:
-                fragment = new HorarioFragment();
-                break;
-            case R.id.navigation_tareas:
-                fragment = new TareasFragment();
-                break;
-            case R.id.navigation_notas:
-                fragment = new NotasFragment();
-                break;
-            case R.id.navigation_eventos:
-                fragment = new EventosFragment();
-                break;
-        }
-        replaceFragment(fragment);
-        return true;
-    }
-
-    private void setInitialFragment(){
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.nav_fragment, new HorarioFragment());
-        fragmentTransaction.commit();
-    }
-
-    private void replaceFragment(Fragment fragment){
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.nav_fragment, fragment);
-        fragmentTransaction.commit();
     }
 
     void permissionStorageExternal(){

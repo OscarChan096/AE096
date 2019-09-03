@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.studio.oscar.agendaescolar.Datos.ConversionObj;
 import com.studio.oscar.agendaescolar.R;
 
 public class AddHorarioFragment extends DialogFragment {
@@ -57,6 +58,7 @@ public class AddHorarioFragment extends DialogFragment {
                     @Override
                     public void onClick(View v) {
                         dialogLis.Agregar(hr.getText().toString(), tohr.getText().toString());
+                        ConversionObj.ConverterToAgenda();
                         dismiss();
                     }
                 }

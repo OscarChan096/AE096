@@ -145,7 +145,7 @@ public class AddToDay extends AppCompatActivity implements AddHorarioFragment.On
                     char unidad = hr.charAt(0);
                     clavehr = Integer.parseInt(String.valueOf(unidad));
                 }
-                Snackbar.make(findViewById(android.R.id.content), "id: " + clavehr, Snackbar.LENGTH_LONG).show();
+                //Snackbar.make(findViewById(android.R.id.content), "id: " + clavehr, Snackbar.LENGTH_LONG).show();
                 switch (Integer.parseInt(ID)) {
                     case 0:
                         lunes(clavehr, asign, profesor, aula, hr, tohr);

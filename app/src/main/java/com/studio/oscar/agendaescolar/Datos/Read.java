@@ -2,7 +2,9 @@ package com.studio.oscar.agendaescolar.Datos;
 
 import android.util.Log;
 
+import com.studio.oscar.agendaescolar.CreatedFiles.mkdirsDirectorios;
 import com.studio.oscar.agendaescolar.Objetos.Agenda;
+import com.studio.oscar.agendaescolar.Objetos.InfoApp;
 import com.studio.oscar.agendaescolar.Objetos.Nota;
 import com.studio.oscar.agendaescolar.Objetos.homework;
 
@@ -114,6 +116,43 @@ public class Read {
                 Log.d("ClassNotFoundException",e.getMessage());
             }
 
+        }
+        return arrayList;
+    }
+
+    public static ArrayList<String> getInfoApp(){
+        String name = "infoapp.app";
+        ArrayList<String> arrayList = new ArrayList<>();
+        File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/12x"); // obtiene el acceso a la memoria interna y obtiene el directorio
+        if (path.isDirectory()) {
+            //Log.d("ReadAgenda","existe el directorio");
+            try {
+                File fileName = new File(path.getAbsolutePath(), name);
+                ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(fileName));
+
+                InfoApp infoapp = (InfoApp) entrada.readObject();
+                if (infoapp.getDiaSistema().length() == 0 || infoapp.getDiaSistema() == null){
+                    Write.WriteInfoApp(ReadDate.getDia(), false);
+                    getInfoApp();
+                }else{
+                    arrayList.add(infoapp.getDiaSistema());
+                    arrayList.add(infoapp.isCheck()+"");
+                }
+                //Log.d("ReadArrayAgenda","Lectura correcta del archivo");
+
+            } catch (FileNotFoundException ex) {
+                Log.d("FileNotFoundException",ex.getMessage());
+            } catch (IOException e) {
+                Log.d("IOException",e.getMessage());
+            } catch (ArrayIndexOutOfBoundsException e) {
+                Log.d("indexOut",e.getMessage());
+            } catch (ClassNotFoundException e) {
+                Log.d("ClassNotFoundException",e.getMessage());
+            }
+
+        }else{
+            mkdirsDirectorios.createdDirectory12x();
+            getInfoApp();
         }
         return arrayList;
     }

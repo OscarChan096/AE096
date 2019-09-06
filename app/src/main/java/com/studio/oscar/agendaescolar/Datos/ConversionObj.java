@@ -35,22 +35,24 @@ public class ConversionObj {
         switch (dia) {
             case "lunes":
                 xReadLunes();
+                xReadMartes();
                 break;
             case "martes":
                 xReadMartes();
+                xReadMiercoles();
                 break;
             case "miercoles":
                 xReadMiercoles();
+                xReadJueves();
                 break;
             case "jueves":
                 xReadJueves();
+                xReadViernes();
                 break;
             case "viernes":
                 xReadViernes();
+                xReadLunes();
                 break;
-                default:
-                    Log.d("switch conversor","default");
-                    break;
         }
         xReadTareas();
         Log.d("ConversorObjArraySize",listAgenda.size()+"");

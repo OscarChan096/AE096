@@ -23,6 +23,8 @@ import com.studio.oscar.agendaescolar.Adapters.AdapterAgenda;
 import com.studio.oscar.agendaescolar.Add.AddAsignaturas;
 import com.studio.oscar.agendaescolar.Datos.ConversionObj;
 import com.studio.oscar.agendaescolar.Datos.Read;
+import com.studio.oscar.agendaescolar.Datos.ReadDate;
+import com.studio.oscar.agendaescolar.Datos.Write;
 import com.studio.oscar.agendaescolar.Objetos.Agenda;
 import com.studio.oscar.agendaescolar.R;
 import com.studio.oscar.agendaescolar.ui.main.PageViewModel;
@@ -72,7 +74,7 @@ public class AgendaFragment extends Fragment implements BottomNavigationView.OnN
         bottomNavigationView = (BottomNavigationView)getActivity().findViewById(R.id.navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
-        ConversionObj.ConverterToAgenda();
+        verificarDia();
         lista = getActivity().findViewById(R.id.list_agenda_fragment);
         arrayList = Read.getListAgenda();
         adapterAgenda = new AdapterAgenda(getActivity(),arrayList);
@@ -124,6 +126,19 @@ public class AgendaFragment extends Fragment implements BottomNavigationView.OnN
                 return true;
             default:
                 return super.onOptionsItemSelected(menuItem);
+        }
+    }
+
+    private void verificarDia(){
+        ArrayList<String> arrayList = Read.getInfoApp();
+        String dia = arrayList.get(0);
+        String check = arrayList.get(1);
+        if (dia.equals(ReadDate.getDia()) && check.equals("false")){
+            ConversionObj.ConverterToAgenda();
+            Write.WriteInfoApp(dia,true);
+        }else if (dia.equals(ReadDate.getDia()) == false){
+            Write.WriteInfoApp(ReadDate.getDia(), false);
+            verificarDia();
         }
     }
 

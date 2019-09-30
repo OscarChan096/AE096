@@ -98,62 +98,64 @@ public class Read {
 
         File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/11a"); // obtiene el acceso a la memoria interna y obtiene el directorio
         if (path.isDirectory()) {
-            Log.d("ReadAgenda","existe el directorio");
+            Log.d("ReadAgenda", "existe el directorio");
             try {
                 File fileName = new File(path.getAbsolutePath(), name);
                 ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(fileName));
 
                 arrayList = (ArrayList) entrada.readObject();
-                Log.d("ReadArrayAgenda","Lectura correcta del archivo");
+                Log.d("ReadArrayAgenda", "Lectura correcta del archivo");
 
             } catch (FileNotFoundException ex) {
-                Log.d("FileNotFoundException",ex.getMessage());
+                Log.d("FileNotFoundException", ex.getMessage());
             } catch (IOException e) {
-                Log.d("IOException",e.getMessage());
+                Log.d("IOException", e.getMessage());
             } catch (ArrayIndexOutOfBoundsException e) {
-                Log.d("indexOut",e.getMessage());
+                Log.d("indexOut", e.getMessage());
             } catch (ClassNotFoundException e) {
-                Log.d("ClassNotFoundException",e.getMessage());
+                Log.d("ClassNotFoundException", e.getMessage());
             }
 
         }
         return arrayList;
     }
 
-    public static ArrayList<String> getInfoApp(){
+    public static ArrayList<String> getInfoApp() {
         String name = "infoapp.app";
         ArrayList<String> arrayList = new ArrayList<>();
         File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/12x"); // obtiene el acceso a la memoria interna y obtiene el directorio
-        if (path.isDirectory()) {
+        //if (path.isDirectory()) {
             //Log.d("ReadAgenda","existe el directorio");
             try {
                 File fileName = new File(path.getAbsolutePath(), name);
                 ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(fileName));
 
                 InfoApp infoapp = (InfoApp) entrada.readObject();
-                if (infoapp.getDiaSistema().length() == 0 || infoapp.getDiaSistema() == null){
-                    Write.WriteInfoApp(ReadDate.getDia(), false);
-                    getInfoApp();
-                }else{
-                    arrayList.add(infoapp.getDiaSistema());
-                    arrayList.add(infoapp.isCheck()+"");
-                }
-                //Log.d("ReadArrayAgenda","Lectura correcta del archivo");
+                //if (infoapp.getDiaSistema().length() == 0 || infoapp.getDiaSistema() == null){
+                //Write.WriteInfoApp(ReadDate.getDia(), false);
+                //getInfoApp();
+                //}else{
+                arrayList.add(infoapp.getDiaSistema());
+                arrayList.add(infoapp.isCheck() + "");
+                //}
+                Log.d("ReadInfoAppIf",infoapp.getDiaSistema()+" "+infoapp.isCheck());
 
             } catch (FileNotFoundException ex) {
-                Log.d("FileNotFoundException",ex.getMessage());
+                Log.d("FileNotFoundException", ex.getMessage());
             } catch (IOException e) {
-                Log.d("IOException",e.getMessage());
+                Log.d("IOException", e.getMessage());
             } catch (ArrayIndexOutOfBoundsException e) {
-                Log.d("indexOut",e.getMessage());
+                Log.d("indexOut", e.getMessage());
             } catch (ClassNotFoundException e) {
-                Log.d("ClassNotFoundException",e.getMessage());
+                Log.d("ClassNotFoundException", e.getMessage());
             }
 
-        }else{
+        /*} else {
             mkdirsDirectorios.createdDirectory12x();
+            Write.WriteInfoApp(ReadDate.getDia(), false);
+            Log.d("ReadInfoAppElse","se creo el archivo infoApp");
             getInfoApp();
-        }
+        }*/
         return arrayList;
     }
 

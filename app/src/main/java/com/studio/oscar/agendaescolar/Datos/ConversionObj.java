@@ -34,24 +34,24 @@ public class ConversionObj {
         String dia = ReadDate.getDia();
         switch (dia) {
             case "lunes":
-                xReadLunes();
-                xReadMartes();
+                xReadLunes("HOY");
+                xReadMartes("MAÑANA");
                 break;
             case "martes":
-                xReadMartes();
-                xReadMiercoles();
+                xReadMartes("HOY");
+                xReadMiercoles("MAÑANA");
                 break;
             case "miercoles":
-                xReadMiercoles();
-                xReadJueves();
+                xReadMiercoles("HOY");
+                xReadJueves("MAÑANA");
                 break;
             case "jueves":
-                xReadJueves();
-                xReadViernes();
+                xReadJueves("HOY");
+                xReadViernes("MAÑANA");
                 break;
             case "viernes":
-                xReadViernes();
-                xReadLunes();
+                xReadViernes("HOY");
+                xReadLunes("MAÑANA");
                 break;
         }
         xReadTareas();
@@ -83,47 +83,47 @@ public class ConversionObj {
         }
     }
 
-    private void xReadLunes() {
+    private void xReadLunes(String text) {
         ArrayList<HClases> list = ReadDay.Read(0);
         for (int i = 0; i < list.size(); i++) {
             HClases aux = list.get(i);
-            Agenda agenda = new Agenda(aux.getId(), aux.getAsignatura(), "", (aux.getAula().length() == 0)?"Sin especificar":aux.getAula(), aux.getHora(), aux.getTohora(), lunes, "Horario");
+            Agenda agenda = new Agenda(aux.getId(), aux.getAsignatura(), "", (aux.getAula().length() == 0)?"Sin especificar":aux.getAula(), aux.getHora(), aux.getTohora(), lunes+" "+text, "Horario");
             listAgenda.add(agenda);
         }
     }
 
-    private void xReadMartes() {
+    private void xReadMartes(String text) {
         ArrayList<HClases> list = ReadDay.Read(1);
         for (int i = 0; i < list.size(); i++) {
             HClases aux = list.get(i);
-            Agenda agenda = new Agenda(aux.getId(), aux.getAsignatura(), "", (aux.getAula().length() == 0)?"Sin especificar":aux.getAula(), aux.getHora(), aux.getTohora(), martes, "Horario");
+            Agenda agenda = new Agenda(aux.getId(), aux.getAsignatura(), "", (aux.getAula().length() == 0)?"Sin especificar":aux.getAula(), aux.getHora(), aux.getTohora(), martes+" "+text, "Horario");
             listAgenda.add(agenda);
         }
     }
 
-    private void xReadMiercoles() {
+    private void xReadMiercoles(String text) {
         ArrayList<HClases> list = ReadDay.Read(2);
         for (int i = 0; i < list.size(); i++) {
             HClases aux = list.get(i);
-            Agenda agenda = new Agenda(aux.getId(), aux.getAsignatura(), "", (aux.getAula().length() == 0)?"Sin especificar":aux.getAula(), aux.getHora(), aux.getTohora(), miercoles, "Horario");
+            Agenda agenda = new Agenda(aux.getId(), aux.getAsignatura(), "", (aux.getAula().length() == 0)?"Sin especificar":aux.getAula(), aux.getHora(), aux.getTohora(), miercoles+" "+text, "Horario");
             listAgenda.add(agenda);
         }
     }
 
-    private void xReadJueves() {
+    private void xReadJueves(String text) {
         ArrayList<HClases> list = ReadDay.Read(3);
         for (int i = 0; i < list.size(); i++) {
             HClases aux = list.get(i);
-            Agenda agenda = new Agenda(aux.getId(), aux.getAsignatura(), "", (aux.getAula().length() == 0)?"Sin especificar":aux.getAula(), aux.getHora(), aux.getTohora(), jueves, "Horario");
+            Agenda agenda = new Agenda(aux.getId(), aux.getAsignatura(), "", (aux.getAula().length() == 0)?"Sin especificar":aux.getAula(), aux.getHora(), aux.getTohora(), jueves+" "+text, "Horario");
             listAgenda.add(agenda);
         }
     }
 
-    private void xReadViernes() {
+    private void xReadViernes(String text) {
         ArrayList<HClases> list = ReadDay.Read(4);
         for (int i = 0; i < list.size(); i++) {
             HClases aux = list.get(i);
-            Agenda agenda = new Agenda(aux.getId(), aux.getAsignatura(), "", (aux.getAula().length() == 0)?"Sin especificar":aux.getAula(), aux.getHora(), aux.getTohora(), viernes, "Horario");
+            Agenda agenda = new Agenda(aux.getId(), aux.getAsignatura(), "", (aux.getAula().length() == 0)?"Sin especificar":aux.getAula(), aux.getHora(), aux.getTohora(), viernes+" "+text, "Horario");
             listAgenda.add(agenda);
         }
     }

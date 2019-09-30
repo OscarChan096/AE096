@@ -6,8 +6,8 @@
 
     <string name="version_alpha">Alpha</string>
     <string name="version_beta">Beta</string>
-    <string name="version_estable">Version 2.2</string>
-    <string name="build">Build 192</string>
+    <string name="version_estable">Version 2.2.1</string>
+    <string name="build">Build 194</string>
 
     <string name="user">Usuario</string>
     <string name="registrarse">Registrarse</string>

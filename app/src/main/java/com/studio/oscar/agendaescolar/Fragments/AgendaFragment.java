@@ -21,6 +21,7 @@ import com.studio.oscar.agendaescolar.Activities.Settings;
 import com.studio.oscar.agendaescolar.Activities.TareasFragment;
 import com.studio.oscar.agendaescolar.Adapters.AdapterAgenda;
 import com.studio.oscar.agendaescolar.Add.AddAsignaturas;
+import com.studio.oscar.agendaescolar.CreatedFiles.mkdirsDirectorios;
 import com.studio.oscar.agendaescolar.Datos.ConversionObj;
 import com.studio.oscar.agendaescolar.Datos.Read;
 import com.studio.oscar.agendaescolar.Datos.ReadDate;
@@ -74,6 +75,7 @@ public class AgendaFragment extends Fragment implements BottomNavigationView.OnN
         bottomNavigationView = (BottomNavigationView)getActivity().findViewById(R.id.navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
+        mkdirsDirectorios.createdDirectory12x();
         verificarDia();
         lista = getActivity().findViewById(R.id.list_agenda_fragment);
         arrayList = Read.getListAgenda();
@@ -131,6 +133,7 @@ public class AgendaFragment extends Fragment implements BottomNavigationView.OnN
 
     private void verificarDia(){
         ArrayList<String> arrayList = Read.getInfoApp();
+        Log.d("sizeAgendaFragment",arrayList.size()+"");
         String dia = arrayList.get(0);
         String check = arrayList.get(1);
         if (dia.equals(ReadDate.getDia()) && check.equals("false")){

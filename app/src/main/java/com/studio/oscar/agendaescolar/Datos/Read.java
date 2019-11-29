@@ -2,7 +2,6 @@ package com.studio.oscar.agendaescolar.Datos;
 
 import android.util.Log;
 
-import com.studio.oscar.agendaescolar.CreatedFiles.mkdirsDirectorios;
 import com.studio.oscar.agendaescolar.Objetos.Agenda;
 import com.studio.oscar.agendaescolar.Objetos.InfoApp;
 import com.studio.oscar.agendaescolar.Objetos.Nota;
@@ -124,38 +123,29 @@ public class Read {
         String name = "infoapp.app";
         ArrayList<String> arrayList = new ArrayList<>();
         File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/12x"); // obtiene el acceso a la memoria interna y obtiene el directorio
-        //if (path.isDirectory()) {
-            //Log.d("ReadAgenda","existe el directorio");
-            try {
-                File fileName = new File(path.getAbsolutePath(), name);
-                ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(fileName));
 
-                InfoApp infoapp = (InfoApp) entrada.readObject();
-                //if (infoapp.getDiaSistema().length() == 0 || infoapp.getDiaSistema() == null){
-                //Write.WriteInfoApp(ReadDate.getDia(), false);
-                //getInfoApp();
-                //}else{
-                arrayList.add(infoapp.getDiaSistema());
-                arrayList.add(infoapp.isCheck() + "");
-                //}
-                Log.d("ReadInfoAppIf",infoapp.getDiaSistema()+" "+infoapp.isCheck());
+        try {
+            File fileName = new File(path.getAbsolutePath(), name);
+            ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(fileName));
 
-            } catch (FileNotFoundException ex) {
-                Log.d("FileNotFoundException", ex.getMessage());
-            } catch (IOException e) {
-                Log.d("IOException", e.getMessage());
-            } catch (ArrayIndexOutOfBoundsException e) {
-                Log.d("indexOut", e.getMessage());
-            } catch (ClassNotFoundException e) {
-                Log.d("ClassNotFoundException", e.getMessage());
-            }
+            InfoApp infoapp = (InfoApp) entrada.readObject();
 
-        /*} else {
-            mkdirsDirectorios.createdDirectory12x();
-            Write.WriteInfoApp(ReadDate.getDia(), false);
-            Log.d("ReadInfoAppElse","se creo el archivo infoApp");
-            getInfoApp();
-        }*/
+            arrayList.add(infoapp.getDiaSistema());
+            arrayList.add(infoapp.isCheck() + "");
+            arrayList.add(infoapp.isMkDirectory() + "");
+
+            Log.d("ReadInfoAppIf", infoapp.getDiaSistema() + " " + infoapp.isCheck());
+
+        } catch (FileNotFoundException ex) {
+            Log.d("FileNotFoundException", ex.getMessage());
+        } catch (IOException e) {
+            Log.d("IOException", e.getMessage());
+        } catch (ArrayIndexOutOfBoundsException e) {
+            Log.d("indexOut", e.getMessage());
+        } catch (ClassNotFoundException e) {
+            Log.d("ClassNotFoundException", e.getMessage());
+        }
+
         return arrayList;
     }
 

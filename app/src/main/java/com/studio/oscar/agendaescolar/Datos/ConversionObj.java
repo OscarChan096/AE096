@@ -66,7 +66,7 @@ public class ConversionObj {
                 ObjectOutputStream salida = new ObjectOutputStream(fileOut);
 
                 salida.writeObject(listAgenda);
-            }else{
+            }/*else{
                 path.mkdirs();
                 Log.d("Directorio","no existe el directorio");
                 File fileName = new File(path.getAbsolutePath(), name);
@@ -74,7 +74,7 @@ public class ConversionObj {
                 ObjectOutputStream salida = new ObjectOutputStream(fileOut);
 
                 salida.writeObject(listAgenda);
-            }
+            }*/
 
         } catch (FileNotFoundException fnfe) {
             Log.d("FileNotFoundException",fnfe.getMessage());

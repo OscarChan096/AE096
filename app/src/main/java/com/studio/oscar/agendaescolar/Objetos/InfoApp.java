@@ -6,6 +6,7 @@ public class InfoApp implements Serializable {
 
     private String diaSistema;
     private boolean check;
+    private boolean mkDirectory;
 
     public String getDiaSistema(){
         return diaSistema;
@@ -23,4 +24,11 @@ public class InfoApp implements Serializable {
         this.check = check;
     }
 
+    public boolean isMkDirectory() {
+        return mkDirectory;
+    }
+
+    public void setMkDirectory(boolean mkDirectory) {
+        this.mkDirectory = mkDirectory;
+    }
 }

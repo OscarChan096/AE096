@@ -92,7 +92,7 @@ public class Settings extends AppCompatActivity implements DialogoInicio.OnDialo
                     salida.writeObject(vi);
 
                     Snackbar.make(findViewById(android.R.id.content), "Guardado", Snackbar.LENGTH_LONG).show();
-                } else {
+                }/* else {
                     path.mkdirs(); // crea la carpeta
                     File fileNameX = new File(path.getAbsolutePath(), name);
                     FileOutputStream fileOut = new FileOutputStream(fileNameX);
@@ -103,7 +103,7 @@ public class Settings extends AppCompatActivity implements DialogoInicio.OnDialo
                     salida.writeObject(vi);
 
                     Snackbar.make(findViewById(android.R.id.content), "Guardado", Snackbar.LENGTH_LONG).show();
-                }
+                }*/
 
             } catch (FileNotFoundException fnfe) {
                 Toast.makeText(getApplicationContext(), "archivos no encontrado: " + fnfe.getMessage(), Toast.LENGTH_SHORT).show();

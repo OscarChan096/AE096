@@ -12,7 +12,7 @@ import static android.os.Environment.getExternalStorageDirectory;
 
 public class Write {
 
-    public static void WriteInfoApp(String diaActual, boolean check) {
+    public static void WriteInfoApp(String diaActual, boolean check, boolean mkDirectorios){
         String name = "infoapp.app";
         try {
             File path = new File(getExternalStorageDirectory(), "Android/data/com.studio.oscar.agendaescolar/12x");
@@ -24,6 +24,7 @@ public class Write {
             InfoApp infoApp = new InfoApp();
             infoApp.setDiaSistema(diaActual);
             infoApp.setCheck(check);
+            infoApp.setMkDirectory(mkDirectorios);
 
             salida.writeObject(infoApp);
 

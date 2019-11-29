@@ -13,10 +13,14 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import com.studio.oscar.agendaescolar.CreatedFiles.mkdirsDirectorios;
 import com.studio.oscar.agendaescolar.Datos.ConversionObj;
+import com.studio.oscar.agendaescolar.Datos.Read;
 import com.studio.oscar.agendaescolar.ui.main.SectionsPagerAdapter;
 
-public class MainActivity extends AppCompatActivity{
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity {
 
     private static final int SOLICITUD_PERMISO_WRITE_CALL_LOG = 0;
 
@@ -32,15 +36,22 @@ public class MainActivity extends AppCompatActivity{
         tabs.setupWithViewPager(viewPager);
 
         permissionStorageExternal();
+
+        mkdirsDirectorios.createdDirectory12x();
+
+        ArrayList<String> list = Read.getInfoApp();
+        if (list.get(2).equals("false"))
+            mkdirsDirectorios.createdDirectory(list.get(0), Boolean.parseBoolean(list.get(1)));
+
     }
 
-    void permissionStorageExternal(){
+    void permissionStorageExternal() {
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 == PackageManager.PERMISSION_GRANTED) {
 
         } else {
-            solicitarPermiso(Manifest.permission.WRITE_EXTERNAL_STORAGE, "Sin el permiso"+
+            solicitarPermiso(Manifest.permission.WRITE_EXTERNAL_STORAGE, "Sin el permiso" +
                             " administrar llamadas no puedo borrar llamadas del registro.",
                     SOLICITUD_PERMISO_WRITE_CALL_LOG, this);
         }
@@ -49,7 +60,7 @@ public class MainActivity extends AppCompatActivity{
     public static void solicitarPermiso(final String permiso, String justificacion,
                                         final int requestCode, final Activity actividad) {
         if (ActivityCompat.shouldShowRequestPermissionRationale(actividad,
-                permiso)){
+                permiso)) {
             new AlertDialog.Builder(actividad)
                     .setTitle("Solicitud de permiso")
                     .setMessage(justificacion)
@@ -57,7 +68,8 @@ public class MainActivity extends AppCompatActivity{
                         public void onClick(DialogInterface dialog, int whichButton) {
                             ActivityCompat.requestPermissions(actividad,
                                     new String[]{permiso}, requestCode);
-                        }})
+                        }
+                    })
                     .show();
         } else {
             ActivityCompat.requestPermissions(actividad,
@@ -68,7 +80,7 @@ public class MainActivity extends AppCompatActivity{
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         if (requestCode == SOLICITUD_PERMISO_WRITE_CALL_LOG) {
-            if (grantResults.length== 1 &&
+            if (grantResults.length == 1 &&
                     grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 permissionStorageExternal();
             } else {

@@ -75,7 +75,6 @@ public class AgendaFragment extends Fragment implements BottomNavigationView.OnN
         bottomNavigationView = (BottomNavigationView)getActivity().findViewById(R.id.navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
-        mkdirsDirectorios.createdDirectory12x();
         verificarDia();
         lista = getActivity().findViewById(R.id.list_agenda_fragment);
         arrayList = Read.getListAgenda();
@@ -138,9 +137,9 @@ public class AgendaFragment extends Fragment implements BottomNavigationView.OnN
         String check = arrayList.get(1);
         if (dia.equals(ReadDate.getDia()) && check.equals("false")){
             ConversionObj.ConverterToAgenda();
-            Write.WriteInfoApp(dia,true);
+            Write.WriteInfoApp(dia,true, true);
         }else if (dia.equals(ReadDate.getDia()) == false){
-            Write.WriteInfoApp(ReadDate.getDia(), false);
+            Write.WriteInfoApp(ReadDate.getDia(), false, true);
             verificarDia();
         }
     }

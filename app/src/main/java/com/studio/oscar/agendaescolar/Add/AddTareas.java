@@ -134,7 +134,7 @@ public class AddTareas extends AppCompatActivity {
                     salida.writeObject(hm);
 
                     Toast.makeText(getApplicationContext(), "Agregado con exito", Toast.LENGTH_SHORT).show();
-                } else {
+                }/* else {
                     path.mkdirs(); // crea la carpeta
                     File fileNameX = new File(path.getAbsolutePath(), name);
                     FileOutputStream fileOut = new FileOutputStream(fileNameX);
@@ -146,7 +146,7 @@ public class AddTareas extends AppCompatActivity {
                     salida.writeObject(hm);
 
                     Toast.makeText(getApplicationContext(), "Agregado con exito", Toast.LENGTH_SHORT).show();
-                }
+                }*/
 
             } catch (FileNotFoundException fnfe) {
                 Toast.makeText(getApplicationContext(), "archivo no encontrado: " + fnfe.getMessage(), Toast.LENGTH_SHORT).show();

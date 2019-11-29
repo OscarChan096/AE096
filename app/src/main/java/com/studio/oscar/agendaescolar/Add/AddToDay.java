@@ -217,7 +217,7 @@ public class AddToDay extends AppCompatActivity implements AddHorarioFragment.On
                 salida.writeObject(vi);
 
                 Toast.makeText(getApplicationContext(),"Agregado con exito",Toast.LENGTH_SHORT).show();
-            }else{
+            }/*else{
                 path.mkdirs(); // crea la carpeta
                 File fileNameX = new File(path.getAbsolutePath(), name);
                 FileOutputStream fileOut = new FileOutputStream(fileNameX);
@@ -229,7 +229,7 @@ public class AddToDay extends AppCompatActivity implements AddHorarioFragment.On
                 salida.writeObject(vi);
 
                 Toast.makeText(getApplicationContext(),"Agregado con exito",Toast.LENGTH_SHORT).show();
-            }
+            }*/
 
         }catch(FileNotFoundException fnfe){
             Toast.makeText(getApplicationContext(),"archivos no encontrado: "+fnfe.getMessage(),Toast.LENGTH_SHORT).show();
@@ -273,7 +273,7 @@ public class AddToDay extends AppCompatActivity implements AddHorarioFragment.On
                 salida.writeObject(vi);
 
                 Toast.makeText(getApplicationContext(),"Agregado con exito",Toast.LENGTH_SHORT).show();
-            }else{
+            }/*else{
                 path.mkdirs(); // crea la carpeta
                 File fileNameX = new File(path.getAbsolutePath(), name);
                 FileOutputStream fileOut = new FileOutputStream(fileNameX);
@@ -284,7 +284,7 @@ public class AddToDay extends AppCompatActivity implements AddHorarioFragment.On
                 salida.writeObject(vi);
 
                 Toast.makeText(getApplicationContext(),"Agregado con exito",Toast.LENGTH_SHORT).show();
-            }
+            }*/
 
         }catch(FileNotFoundException fnfe){
             Toast.makeText(getApplicationContext(),"archivos no encontrado: "+fnfe.getMessage(),Toast.LENGTH_SHORT).show();
@@ -327,7 +327,7 @@ public class AddToDay extends AppCompatActivity implements AddHorarioFragment.On
                 salida.writeObject(vi);
 
                 Toast.makeText(getApplicationContext(),"Agregado con exito",Toast.LENGTH_SHORT).show();
-            }else{
+            }/*else{
                 path.mkdirs(); // crea la carpeta
                 File fileNameX = new File(path.getAbsolutePath(), name);
                 FileOutputStream fileOut = new FileOutputStream(fileNameX);
@@ -338,7 +338,7 @@ public class AddToDay extends AppCompatActivity implements AddHorarioFragment.On
                 salida.writeObject(vi);
 
                 Toast.makeText(getApplicationContext(),"Agregado con exito",Toast.LENGTH_SHORT).show();
-            }
+            }*/
 
         }catch(FileNotFoundException fnfe){
             Toast.makeText(getApplicationContext(),"archivos no encontrado: "+fnfe.getMessage(),Toast.LENGTH_SHORT).show();
@@ -380,7 +380,7 @@ public class AddToDay extends AppCompatActivity implements AddHorarioFragment.On
                 vi.setNombreArchivo(name);
 
                 Toast.makeText(getApplicationContext(),"Agregado con exito",Toast.LENGTH_SHORT).show();
-            }else{
+            }/*else{
                 path.mkdirs(); // crea la carpeta
                 File fileNameX = new File(path.getAbsolutePath(), name);
                 FileOutputStream fileOut = new FileOutputStream(fileNameX);
@@ -391,7 +391,7 @@ public class AddToDay extends AppCompatActivity implements AddHorarioFragment.On
                 salida.writeObject(vi);
 
                 Toast.makeText(getApplicationContext(),"Agregado con exito",Toast.LENGTH_SHORT).show();
-            }
+            }*/
 
         }catch(FileNotFoundException fnfe){
             Toast.makeText(getApplicationContext(),"archivos no encontrado: "+fnfe.getMessage(),Toast.LENGTH_SHORT).show();
@@ -434,7 +434,7 @@ public class AddToDay extends AppCompatActivity implements AddHorarioFragment.On
                 salida.writeObject(vi);
 
                 Toast.makeText(getApplicationContext(),"Agregado con exito",Toast.LENGTH_SHORT).show();
-            }else{
+            }/*else{
                 path.mkdirs(); // crea la carpeta
                 File fileNameX = new File(path.getAbsolutePath(), name);
                 FileOutputStream fileOut = new FileOutputStream(fileNameX);
@@ -445,7 +445,7 @@ public class AddToDay extends AppCompatActivity implements AddHorarioFragment.On
                 salida.writeObject(vi);
 
                 Toast.makeText(getApplicationContext(),"Agregado con exito",Toast.LENGTH_SHORT).show();
-            }
+            }*/
 
         }catch(FileNotFoundException fnfe){
             Toast.makeText(getApplicationContext(),"archivos no encontrado: "+fnfe.getMessage(),Toast.LENGTH_SHORT).show();

@@ -51,7 +51,7 @@ public class ConversionObj {
                 break;
             case "viernes":
                 xReadViernes("HOY");
-                xReadLunes("MAÑANA");
+                xReadLunes("FALTAN 2 DIAS");
                 break;
         }
         xReadTareas();

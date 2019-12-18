@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.studio.oscar.agendaescolar.Datos.DeleteFiles;
 import com.studio.oscar.agendaescolar.Datos.ReadInicio;
 import com.studio.oscar.agendaescolar.Fragments.DialogoInicio;
 import com.studio.oscar.agendaescolar.Objetos.Inf;
@@ -54,6 +55,38 @@ public class Settings extends AppCompatActivity implements DialogoInicio.OnDialo
                             })
                             .show();
                 }
+            }
+        });
+
+        Button btnDeleteAll = findViewById(R.id.btnDeleteAll);
+        btnDeleteAll.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                DeleteFiles.todo();
+            }
+        });
+
+        Button btnDeleteAsignaturas = findViewById(R.id.btnDeleteAsignaturas);
+        btnDeleteAsignaturas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DeleteFiles.asignaturas();
+            }
+        });
+
+        Button btnDeleteTareas = findViewById(R.id.btnDeleteTareas);
+        btnDeleteTareas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DeleteFiles.tareas();
+            }
+        });
+
+        Button btnDeleteNotas = findViewById(R.id.btnDeleteNotas);
+        btnDeleteNotas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DeleteFiles.notas();
             }
         });
 

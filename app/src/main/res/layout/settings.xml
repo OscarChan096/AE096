@@ -7,7 +7,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
 
         <LinearLayout
             android:orientation="vertical"
@@ -60,6 +61,74 @@
                 android:layout_marginRight="10dp"
                 android:padding="8dp"
                 android:text="Guardar"
+                android:textColor="@color/white"
+                android:background="@drawable/boton_redondo"
+                android:drawableLeft="@drawable/ic_select" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Eliminar datos"
+                android:textStyle="bold|italic"
+                android:padding="12dp"/>
+
+            <Button
+                android:id="@+id/btnDeleteAll"
+                android:drawableStart="@drawable/ic_select"
+                android:drawablePadding="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:padding="8dp"
+                android:text="Eliminar todo"
+                android:textColor="@color/white"
+                android:background="@drawable/boton_redondo"
+                android:drawableLeft="@drawable/ic_select" />
+
+            <Button
+                android:id="@+id/btnDeleteAsignaturas"
+                android:drawableStart="@drawable/ic_select"
+                android:drawablePadding="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:padding="8dp"
+                android:text="Eliminar Asignaturas"
+                android:textColor="@color/white"
+                android:background="@drawable/boton_redondo"
+                android:drawableLeft="@drawable/ic_select" />
+
+            <Button
+                android:id="@+id/btnDeleteTareas"
+                android:drawableStart="@drawable/ic_select"
+                android:drawablePadding="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:padding="8dp"
+                android:text="Eliminar tareas"
+                android:textColor="@color/white"
+                android:background="@drawable/boton_redondo"
+                android:drawableLeft="@drawable/ic_select" />
+
+            <Button
+                android:id="@+id/btnDeleteNotas"
+                android:drawableStart="@drawable/ic_select"
+                android:drawablePadding="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:padding="8dp"
+                android:text="Eliminar notas"
                 android:textColor="@color/white"
                 android:background="@drawable/boton_redondo"
                 android:drawableLeft="@drawable/ic_select" />
